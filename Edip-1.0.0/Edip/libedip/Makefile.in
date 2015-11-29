@@ -1,0 +1,103 @@
+# I dislike directory printing behaviour of make: it look's like an error message cause of formatting style of this feature.
+MAKEFLAGS += --no-print-directory
+
+########### binary variables #################
+
+CP      = @CP@
+
+RM      = @RM@
+
+RANLIB  = @RANLIB@
+
+DESKTOP_FILE_INSTALL = @DESKTOP_FILE_INSTALL@
+
+################################################################################
+
+override CXXFLAGS := -std=c++11 -O2
+
+override LDFLAGS := `pkg-config --cflags --libs opencv`
+
+################################################################################
+
+LIBEDIP_FILES = algorithm.cpp \
+                Binary_Images.cpp \
+                Color_Filters.cpp \
+                drawning.cpp \
+                Files_Merging.cpp \
+                Filters.cpp \
+                HLSV_Filters.cpp \
+                Kernels.cpp \
+                operations.cpp \
+                Photography_Filters.cpp \
+                Resizer.cpp
+
+LIBEDIP_FILES_O = $(foreach var, $(LIBEDIP_FILES:.cpp=.o), $(BUILD_DIR)/$(var))
+
+################################################################################
+
+LIBEDIP_A  = libedip.a
+
+################################################################################
+
+BUILD_DIR = ./build
+
+################################################################################
+
+
+
+
+
+
+$(LIBEDIP_A): $(LIBEDIP_FILES_O)
+	$(AR) rcs $(LIBEDIP_A) $(LIBEDIP_FILES_O)
+	$(RANLIB) $(LIBEDIP_A)
+
+$(BUILD_DIR)/algorithm.o: algorithm.cpp algorithm.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/Binary_Images.o: Binary_Images.cpp Binary_Images.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/Color_Filters.o: Color_Filters.cpp Color_Filters.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/drawning.o: drawning.cpp drawning.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/Files_Merging.o: Files_Merging.cpp Files_Merging.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/Filters.o: Filters.cpp Filters.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/HLSV_Filters.o: HLSV_Filters.cpp HLSV_Filters.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/Kernels.o: Kernels.cpp Kernels.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/operations.o: operations.cpp operations.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/Photography_Filters.o: Photography_Filters.cpp Photography_Filters.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/Resizer.o: Resizer.cpp Resizer.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+install_a: $(LIBEDIP_A)
+	$(CP) $(LIBEDIP_A) ../
+
+.PHONY: clean_o clean_a clean
+
+clean_o:
+	- $(RM) -f $(LIBEDIP_FILES_O)
+
+clean_a:
+	- $(RM) -f $(LIBEDIP_A)
+
+
+clean: clean_o clean_a
+
+
+

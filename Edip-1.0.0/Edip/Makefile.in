@@ -1,0 +1,172 @@
+# I dislike directory printing behaviour of make: it look's like an error message cause of formatting style of this feature.
+MAKEFLAGS += --no-print-directory
+
+########## directory variables ###############
+
+prefix      = @prefix@
+
+bindir      = $(prefix)@bindir@
+
+datarootdir = @datarootdir@
+datadir     = $(datarootdir)
+
+desktopdir  = /usr/share/applications
+
+srcdir      = .
+
+######## library linking variables ###########
+
+GTKMM_CFLAGS = @GTKMM_CFLAGS@
+
+GTKMM_LIBS   = @GTKMM_LIBS@
+
+##############################################
+
+########### binary variables #################
+
+INSTALL = @INSTALL@
+
+MKDIR_P = @MKDIR_P@
+
+LN_S    = @LN_S@
+
+CHMOD   = @CHMOD@
+
+CP      = @CP@
+
+RM      = @RM@
+
+DESKTOP_FILE_INSTALL = @DESKTOP_FILE_INSTALL@
+
+########### Desktop file path ################
+
+DESKTOP_FOLDER = $(if $(realpath $(desktopdir)), $(realpath $(desktopdir)))
+
+##############################################
+
+CXXFLAGS = @CXXFLAGS@
+
+EDIP_CXXFLAGS = $(CXXFLAGS) -std=c++11
+
+override OPENCV_LDFLAGS := `pkg-config --cflags --libs opencv`
+
+##################################### Files ####################################
+
+CXX_FILES    = Edip_functions.cpp Edip_Controller.cpp Edip_gui.cpp main.cpp
+
+CXX_FILES_O   = $(foreach var, $(CXX_FILES:.cpp=.o), $(BUILD_DIR)/$(var))
+
+EDIP_GUI_DEPENDS = ./gui/Edip_gui_process.cpp \
+                   ./gui/Edip_gui_private.cpp \
+                   ./gui/Edip_gui_events_end.cpp \
+                   ./gui/Edip_gui_toplevels.cpp
+
+EDIP_GUI_DIALOG_DEPENDS = ./gui/dialog/Edip_dialog_files.cpp \
+                          ./gui/dialog/Edip_dialog_files_merging.cpp \
+                          ./gui/dialog/Edip_dialog_drawning.cpp \
+                          ./gui/dialog/Edip_dialog_colors_filters.cpp \
+                          ./gui/dialog/Edip_dialog_kernel_filters.cpp \
+                          ./gui/dialog/Edip_dialog_photography_filters.cpp \
+                          ./gui/dialog/Edip_dialog_other_filters.cpp
+
+
+################################################################################
+
+PRGNAME = Edip
+
+CXX_LIBEDIP_A = libedip.a
+
+################################################################################
+
+BUILD_DIR = ./build
+
+################################################################################
+
+$(PRGNAME): $(CXX_LIBEDIP_A) $(CXX_FILES_O)
+	$(CXX)  $(EDIP_CXXFLAGS) $(GTKMM_CFLAGS) -o $(PRGNAME) $(CXX_FILES_O) $(CXX_LIBEDIP_A) $(GTKMM_LIBS) $(OPENCV_LDFLAGS)
+
+$(BUILD_DIR)/Edip_functions.o: Edip_functions.cpp Edip_functions.hpp
+	$(CXX)  $(EDIP_CXXFLAGS) $(GTKMM_CFLAGS) -c $< -o $@ $(GTKMM_LIBS) $(OPENCV_LDFLAGS)
+
+$(BUILD_DIR)/Edip_Controller.o: Edip_Controller.cpp Edip_Controller.hpp
+	$(CXX)  $(EDIP_CXXFLAGS) $(GTKMM_CFLAGS) -c $< -o $@  $(GTKMM_LIBS) $(OPENCV_LDFLAGS)
+
+$(BUILD_DIR)/Edip_gui.o: Edip_gui.cpp Edip_gui.hpp Edip_Controller.hpp Edip_define.hpp libedip.hpp $(EDIP_GUI_DEPENDS) $(EDIP_GUI_DIALOG_DEPENDS)
+	$(CXX)  $(EDIP_CXXFLAGS) $(GTKMM_CFLAGS) -DMAIN_PATH=\"$(DESTDIR)$(datadir)/$(PRGNAME)/\" -c $< -o $@  $(GTKMM_LIBS) $(OPENCV_LDFLAGS)
+
+$(BUILD_DIR)/main.o: main.cpp Edip_gui.hpp Edip_Controller.hpp
+	$(CXX)  $(EDIP_CXXFLAGS) $(GTKMM_CFLAGS) -c $< -o $@  $(GTKMM_LIBS) $(OPENCV_LDFLAGS)
+
+$(CXX_LIBEDIP_A):
+	cd ./libedip ; $(MAKE) install_a
+
+install: $(PRGNAME)
+	$(MAKE) install-data
+	if `test ! -d $(DESTDIR)$(bindir)` ; then  $(MKDIR_P) $(DESTDIR)$(bindir) ; fi
+	$(INSTALL) $(PRGNAME) $(DESTDIR)$(bindir)
+	if `test ! -L  $(DESTDIR)$(bindir)/edip` ; then cd $(DESTDIR)$(bindir)/ ;  $(LN_S) -T $(DESTDIR)$(bindir)/$(PRGNAME) $(DESTDIR)$(bindir)/edip ; fi
+
+
+install-strip: $(PRGNAME)
+	$(MAKE) install-data
+	if `test ! -d $(DESTDIR)$(bindir)` ; then  $(MKDIR_P) $(DESTDIR)$(bindir) ; fi
+	$(INSTALL) -s $(PRGNAME) $(DESTDIR)$(bindir)
+	if `test ! -L  $(DESTDIR)$(bindir)/edip` ; then cd $(DESTDIR)$(bindir)/ ;  $(LN_S) -T $(DESTDIR)$(bindir)/$(PRGNAME) $(DESTDIR)$(bindir)/edip ; fi
+
+
+install-data:
+	if `test ! -d $(DESTDIR)$(datadir)` ; then $(MKDIR_P) $(DESTDIR)$(datadir) ; fi
+	if `test ! -d $(DESTDIR)$(datadir)/$(PRGNAME)` ; then  $(MKDIR_P) $(DESTDIR)$(datadir)/$(PRGNAME) ; fi
+	$(CP) -R ./images $(DESTDIR)$(datadir)/$(PRGNAME) ;
+	$(CP) -R ./License $(DESTDIR)$(datadir)/$(PRGNAME) ;
+	$(CP) -R ./README $(DESTDIR)$(datadir)/$(PRGNAME) ;
+	$(CP) -R ./html-documentation $(DESTDIR)$(datadir)/$(PRGNAME) ;
+	$(CHMOD) -R a+rx $(DESTDIR)$(datadir)/$(PRGNAME) ;
+ifneq ($(DESKTOP_FOLDER), )
+	$(MAKE) desktop
+ifneq ($(DESKTOP_FILE_INSTALL), )
+	cd $(desktopdir) ; $(DESKTOP_FILE_INSTALL) --dir=$(desktopdir) $(PRGNAME).desktop
+endif
+endif
+
+uninstall:
+	if `test -d $(DESTDIR)$(datadir)/$(PRGNAME)` ; then  $(RM) -R $(DESTDIR)$(datadir)/$(PRGNAME) ; fi
+	if `test -L  $(DESTDIR)$(bindir)/edip` ; then $(RM) $(DESTDIR)$(bindir)/edip ; fi
+	if `test -f $(DESTDIR)$(bindir)/$(PRGNAME)` ; then $(RM) $(DESTDIR)$(bindir)/$(PRGNAME) ; fi
+	if `test -d $(desktopdir)` && `test -f $(desktopdir)/$(PRGNAME).desktop` ; then  $(RM) $(desktopdir)/$(PRGNAME).desktop ; fi
+
+.PHONY: desktop uninstall install-data
+
+desktop:
+	@echo "[Desktop Entry]" > $(desktopdir)/$(PRGNAME).desktop
+	@echo "Version=1.0" >> $(desktopdir)/$(PRGNAME).desktop
+	@echo "Name=Edip" >> $(desktopdir)/$(PRGNAME).desktop
+	@echo "GenericName=Easy Digital Image Processing" >> $(desktopdir)/$(PRGNAME).desktop
+	@echo "Comment=Easy to use image effects processing program with image files merging functionnalities." >> $(desktopdir)/$(PRGNAME).desktop
+	@echo "Exec=$(PRGNAME) %f" >> $(desktopdir)/$(PRGNAME).desktop
+	@echo "Icon=$(datadir)/$(PRGNAME)/images/icons/Logo/Edip_icon.png" >> $(desktopdir)/$(PRGNAME).desktop
+	@echo "Terminal=false" >> $(desktopdir)/$(PRGNAME).desktop
+	@echo "X-MultipleArgs=false" >> $(desktopdir)/$(PRGNAME).desktop
+	@echo "StartupNotify=true" >> $(desktopdir)/$(PRGNAME).desktop
+	@echo "Type=Application" >> $(desktopdir)/$(PRGNAME).desktop
+	@echo "MimeType=image/bmp;image/x-cmu-raster;image/x-portable-bitmap;image/x-portable-graymap;image/x-portable-pixmap;image/png;image/jpeg;image/tiff;image/webp;" >> $(desktopdir)/$(PRGNAME).desktop
+	@echo "Keywords=Grahics;2DGraphics;Image;Effects;bmp;png;jpeg;webp;ras;ppm;"  >> $(desktopdir)/$(PRGNAME).desktop
+	@echo "Categories=Graphics;2DGraphics;RasterGraphics;GTK;" >> $(desktopdir)/$(PRGNAME).desktop
+
+.PHONY: clean_lib clean_a clean_o clean_prg clean
+
+clean_lib:
+	cd ./libedip ; $(MAKE) clean
+
+clean_a:
+	- $(RM) -f $(CXX_LIBEDIP_A)
+
+clean_o:
+	- $(RM) -f $(CXX_FILES_O)
+
+clean_prg:
+	- $(RM) -f $(PRGNAME)
+
+clean: clean_o clean_prg clean_a clean_lib
+
+.PHONY: clean clean_o clean_prg clean_a clean_lib

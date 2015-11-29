@@ -1,0 +1,756 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Simple Filters &mdash; EDIP (Easy Digital Imaging Processing) Documentation. 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="_static/Edip_favicon.ico"/>
+    <link rel="top" title="EDIP (Easy Digital Imaging Processing) Documentation. 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Advanced Configurable Filters" href="Edip Advanced Configurable Filters.html" />
+    <link rel="prev" title="Simple Settings" href="Edip Simple Settings.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Edip Advanced Configurable Filters.html" title="Advanced Configurable Filters"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Edip Simple Settings.html" title="Simple Settings"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Edip</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="simple-filters">
+<h1>Simple Filters<a class="headerlink" href="#simple-filters" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="edip-built-in-filters">
+<h2>Edip built-in filters<a class="headerlink" href="#edip-built-in-filters" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">Edip</span></tt> provide a lot of predefine, non-configurable built-in filters, applicable like this:</p>
+<div class="section" id="pencil-sketch">
+<h3>Pencil Sketch<a class="headerlink" href="#pencil-sketch" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>The Pencil Sketch filter produce a non-photorealistic line drawing image.</div></blockquote>
+</div>
+<div class="section" id="stylisation">
+<h3>Stylisation<a class="headerlink" href="#stylisation" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>The stylisation filter is an edge-aware filters which effect is not focused on photorealism but abstract regions of low contrast while preserving, or enhancing, high-contrast features.</div></blockquote>
+</div>
+<div class="section" id="detail-enhance">
+<h3>Detail Enhance<a class="headerlink" href="#detail-enhance" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>The Detail Enhance filter enhances the details of a particular image.</div></blockquote>
+</div>
+<div class="section" id="edges-preserving">
+<h3>Edges Preserving<a class="headerlink" href="#edges-preserving" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>The Edge Preserving filter is a smoothing filters used in many different applications.</div></blockquote>
+</div>
+<div class="section" id="stroke-edges">
+<h3>Stroke Edges<a class="headerlink" href="#stroke-edges" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>The Stroke Edges filter add black strokes on some edges of the image.</div></blockquote>
+</div>
+<div class="section" id="invert-intensity">
+<h3>Invert Intensity<a class="headerlink" href="#invert-intensity" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Invert Intensity filter invert the intensity.</p>
+<p>This mean that the maximal value become the minimal value and so soon in the pixel values range.</p>
+</div></blockquote>
+</div>
+<div class="section" id="light-intensity">
+<h3>Light Intensity<a class="headerlink" href="#light-intensity" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Light Intensity filter invert the intensity from the pixels channels average value.</p>
+<p>So that it output an grayscale image with light effect.</p>
+</div></blockquote>
+</div>
+<div class="section" id="recolor-rc-red-cyan">
+<h3>Recolor RC (Red-Cyan)<a class="headerlink" href="#recolor-rc-red-cyan" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Simulate conversion from RGB (Red, Green, Blue) to RC (red, cyan).</p>
+<p>Blues and greens are replaced with cyans.</p>
+<p>The effect is similar to Technicolor Process 2 (used in early color movies) and CGA Palette 3 (used in early color PCs).</p>
+</div></blockquote>
+</div>
+<div class="section" id="recolor-rgv-red-green-value">
+<h3>Recolor RGV (Red-Green-Value)<a class="headerlink" href="#recolor-rgv-red-green-value" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Simulate conversion from RGB (Red, Green, Blue) to RGV (red, green, value).</p>
+<p>Blues are desaturated.</p>
+<p>The effect is similar to Technicolor Process 1 (used in early color movies).</p>
+</div></blockquote>
+</div>
+<div class="section" id="recolor-cmv-cyan-magenta-value">
+<h3>Recolor CMV (Cyan-Magenta-Value)<a class="headerlink" href="#recolor-cmv-cyan-magenta-value" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Simulate conversion from RGB (Red, Green, Blue) to CMV (cyan, magenta, value).</p>
+<p>Yellows are desaturated.</p>
+<p>The effect is similar to CGA Palette 1 (used in early color PCs).</p>
+</div></blockquote>
+</div>
+<div class="section" id="extrema-maximal">
+<h3>Extrema Maximal<a class="headerlink" href="#extrema-maximal" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>The Extrema Maximal filter compute the maximal values from 2 differents channels and set the result on a channel.</div></blockquote>
+</div>
+<div class="section" id="extrema-minimal">
+<h3>Extrema Minimal<a class="headerlink" href="#extrema-minimal" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>The Extrema Minimal filter compute the minimal values from 2 differents channels and set the result on a channel.</div></blockquote>
+</div>
+<div class="section" id="sharpen">
+<h3>Sharpen<a class="headerlink" href="#sharpen" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Sharpen filter sharpen the image by adding some white pixels at some edges and points of the image.</p>
+<p>This filter is based on a <a class="reference internal" href="Edip To know about image processing.html#sharpen-matrix"><em>Sharpen</em></a> <a class="reference internal" href="Edip To know about image processing.html#convolution-matrix"><em>convolution matrix</em></a>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="sharpen-more">
+<h3>Sharpen More<a class="headerlink" href="#sharpen-more" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Sharpen More filter sharpen the image by adding some white pixels at some edges and points of the image.</p>
+<p>It has more impact on the image as the Sharpen filter but does the same stronger.</p>
+<p>This filter is based on a <a class="reference internal" href="Edip To know about image processing.html#sharpen-matrix"><em>Sharpen</em></a> <a class="reference internal" href="Edip To know about image processing.html#convolution-matrix"><em>convolution matrix</em></a>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="find-edges">
+<h3>Find Edges<a class="headerlink" href="#find-edges" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Find Edges filter will result in black background image with the contours and some pixels, of the source image, displayed in color.</p>
+<p>This filter is based on a <a class="reference internal" href="Edip To know about image processing.html#find-edges-matrix"><em>Find Edges</em></a> <a class="reference internal" href="Edip To know about image processing.html#convolution-matrix"><em>convolution matrix</em></a>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="mean-blur">
+<h3>Mean Blur<a class="headerlink" href="#mean-blur" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Mean Blur filter swindle the image. The result image is blurred.</p>
+<p>This filter is based on a <a class="reference internal" href="Edip To know about image processing.html#mean-matrix"><em>Mean</em></a> <a class="reference internal" href="Edip To know about image processing.html#convolution-matrix"><em>convolution matrix</em></a>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="mean-blur-more">
+<h3>Mean Blur More<a class="headerlink" href="#mean-blur-more" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Mean Blur More filter swindle the image. The result image is blurred.</p>
+<p>It has more impact on the image as the Mean Blur filter but does the same stronger.</p>
+<p>This filter is based on a <a class="reference internal" href="Edip To know about image processing.html#mean-matrix"><em>Mean</em></a> <a class="reference internal" href="Edip To know about image processing.html#convolution-matrix"><em>convolution matrix</em></a>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="blur">
+<h3>Blur<a class="headerlink" href="#blur" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Blur filter swindle the image.</p>
+<p>What can remove some noise of the image or smooth an pixelize image.</p>
+</div></blockquote>
+</div>
+<div class="section" id="blur-median">
+<h3>Blur Median<a class="headerlink" href="#blur-median" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Blur Median filter swindle the image.</p>
+<p>What can remove some noise of the image or smooth an pixelize image.</p>
+<p>This filter is well know for salt and pepper noise removing.</p>
+</div></blockquote>
+</div>
+<div class="section" id="blur-gaussian">
+<h3>Blur Gaussian<a class="headerlink" href="#blur-gaussian" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Blur Gaussian filter swindle the image.</p>
+<p>What can remove some noise of the image or smooth an pixelize image.</p>
+<p>It use <a class="reference internal" href="Edip To know about image processing.html#gaussian-values"><em>gaussian values</em></a> for creating the blurring effect applying onto the image.</p>
+</div></blockquote>
+</div>
+<div class="section" id="denoising">
+<h3>Denoising<a class="headerlink" href="#denoising" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The denoising filter perform image denoising using Non-local Means Denoising with several computational optimizations.</p>
+<p>Noise expected to be a gaussian white noise.</p>
+<p>Denoising is done by converting image to CIELAB colorspacenand then separately denoise L and AB components with different parameters.</p>
+</div></blockquote>
+</div>
+<div class="section" id="erode">
+<h3>Erode<a class="headerlink" href="#erode" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Erode filter eroding the image content contours.</p>
+<p>This filter erodes the image by minimizing the pixels neighborhood.</p>
+</div></blockquote>
+</div>
+<div class="section" id="dilate">
+<h3>Dilate<a class="headerlink" href="#dilate" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Dilate filter dilate the image content contours.</p>
+<p>This filter dilates the image by maximizing the pixels neighborhood.</p>
+</div></blockquote>
+</div>
+<div class="section" id="wave-horizontally">
+<h3>Wave Horizontally<a class="headerlink" href="#wave-horizontally" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>The Wave Horizontally filter output an horizontally waved image.</div></blockquote>
+</div>
+<div class="section" id="wave-vertically">
+<h3>Wave Vertically<a class="headerlink" href="#wave-vertically" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>The Wave Vertically filter output an horizontally waved image.</div></blockquote>
+</div>
+<div class="section" id="wave-twice">
+<h3>Wave Twice<a class="headerlink" href="#wave-twice" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>The Wave Twice filter output an horizontally and vertically waved image.</div></blockquote>
+</div>
+<div class="section" id="contours-sobel-white">
+<h3>Contours Sobel White<a class="headerlink" href="#contours-sobel-white" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Contours <a class="reference internal" href="Edip To know about image processing.html#sobel-matrix"><em>Sobel</em></a> White filter result in an image with a white background and colored drawning wise foreground.</p>
+<p>All the contours strokes of the image will be displayed on a white background.</p>
+</div></blockquote>
+</div>
+<div class="section" id="contours-sobel-black">
+<h3>Contours Sobel Black<a class="headerlink" href="#contours-sobel-black" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Contours <a class="reference internal" href="Edip To know about image processing.html#sobel-matrix"><em>Sobel</em></a> Black filter result in an image with a black background and colored drawning wise foreground.</p>
+<p>All the contours strokes of the image will be displayed on a black background.</p>
+</div></blockquote>
+</div>
+<div class="section" id="contours-sobel-emboss">
+<h3>Contours Sobel Emboss<a class="headerlink" href="#contours-sobel-emboss" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Contours <a class="reference internal" href="Edip To know about image processing.html#sobel-matrix"><em>Sobel</em></a> Emboss filter result in an image with an <a class="reference internal" href="Edip To know about image processing.html#emboss-gray"><em>emboss gray</em></a> background and colored drawning wise foreground.</p>
+<p>All the contours strokes of the image will be displayed on a <a class="reference internal" href="Edip To know about image processing.html#emboss-gray"><em>emboss gray</em></a> background.</p>
+</div></blockquote>
+</div>
+<div class="section" id="emboss-sobel">
+<h3>Emboss Sobel<a class="headerlink" href="#emboss-sobel" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Emboss <a class="reference internal" href="Edip To know about image processing.html#sobel-matrix"><em>Sobel</em></a> filter is an emboss filter which result looking like a kopper engraving.</p>
+<p>Based on the Sobel operator which detect edges horizontally and or vertically.</p>
+</div></blockquote>
+</div>
+<div class="section" id="emboss-laplacian">
+<h3>Emboss Laplacian<a class="headerlink" href="#emboss-laplacian" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Emboss <a class="reference internal" href="Edip To know about image processing.html#laplacian-matrix"><em>Laplacian</em></a> filter is an emboss filter which result looking like a kopper engraving.</p>
+<p>Based on the Laplacian operator which detect edges horizontally and vertically.</p>
+</div></blockquote>
+</div>
+<div class="section" id="binary-white-otsu">
+<span id="id1"></span><h3>Binary White OTSU<a class="headerlink" href="#binary-white-otsu" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Binary White OTSU filter create an black and white image, from the source image, with white background and black foreground.</p>
+<p>Based on the OTSU image specific threshold computing algorithm.</p>
+<p>Simply try every algorithm to find the appositely one for your image, to get the best binary image from it.</p>
+</div></blockquote>
+</div>
+<div class="section" id="binary-white-triangle">
+<span id="id2"></span><h3>Binary White TRIANGLE<a class="headerlink" href="#binary-white-triangle" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Binary White TRIANGLE filter create an black and white image, from the source image, with white background and black foreground.</p>
+<p>Based on the TRIANGLE image specific threshold computing algorithm.</p>
+<p>Simply try every algorithm to find the appositely one for your image, to get the best binary image from it.</p>
+</div></blockquote>
+</div>
+<div class="section" id="binary-white-average">
+<span id="id3"></span><h3>Binary White AVERAGE<a class="headerlink" href="#binary-white-average" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Binary White AVERAGE filter create an black and white image, from the source image, with white background and black foreground.</p>
+<p>Based on the OTSU and TRIANGLE image specific threshold computing algorithm, average.</p>
+<p>Simply try every algorithm to find the appositely one for your image, to get the best binary image from it.</p>
+</div></blockquote>
+</div>
+<div class="section" id="binary-black-otsu">
+<span id="id4"></span><h3>Binary Black OTSU<a class="headerlink" href="#binary-black-otsu" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Binary Black OTSU filter create an black and white image, from the source image, with black background and white foreground.</p>
+<p>Based on the OTSU image specific threshold computing algorithm.</p>
+<p>Simply try every algorithm to find the appositely one for your image, to get the best binary image from it.</p>
+</div></blockquote>
+</div>
+<div class="section" id="binary-black-triangle">
+<span id="id5"></span><h3>Binary Black TRIANGLE<a class="headerlink" href="#binary-black-triangle" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Binary Black TRIANGLE filter create an black and white image, from the source image, with black background and white foreground.</p>
+<p>Based on the TRIANGLE image specific threshold computing algorithm.</p>
+<p>Simply try every algorithm to find the appositely one for your image, to get the best binary image from it.</p>
+</div></blockquote>
+</div>
+<div class="section" id="binary-black-average">
+<span id="id6"></span><h3>Binary Black AVERAGE<a class="headerlink" href="#binary-black-average" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Binary Black AVERAGE filter create an black and white image, from the source image, with black background and white foreground.</p>
+<p>Based on the OTSU and TRIANGLE image specific threshold computing algorithm, average.</p>
+<p>Simply try every algorithm to find the appositely one for your image,nto get the best binary image from it.</p>
+</div></blockquote>
+</div>
+<div class="section" id="binary-contours-white">
+<h3>Binary Contours White<a class="headerlink" href="#binary-contours-white" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Binary Contours White filter create an black and white image, from the source image, with white background and black foreground.</p>
+<p>With as foreground all the contours strokes of the image.</p>
+<p>Like an black and white drawning.</p>
+</div></blockquote>
+</div>
+<div class="section" id="binary-contours-black">
+<h3>Binary Contours Black<a class="headerlink" href="#binary-contours-black" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Binary Contours Black filter create an black and white image, from the source image, with black background and white foreground.</p>
+<p>With as foreground all the contours strokes of the image.</p>
+<p>Like an black and white drawning.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="simple-grayscaling">
+<span id="id7"></span><h2>Simple Grayscaling<a class="headerlink" href="#simple-grayscaling" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">Edip</span></tt> can grayscaling your image, to set it enterely in gray tone, according differents bases:</p>
+<ul class="simple">
+<li>Gray Scaling <strong>Average</strong>.</li>
+<li>Gray Scaling <strong>Maximal</strong>.</li>
+<li>Gray Scaling <strong>Minimal</strong></li>
+<li>Gray Scaling <strong>Red</strong>.</li>
+<li>Gray Scaling <strong>Green</strong>.</li>
+<li>Gray Scaling <strong>Blue</strong>.</li>
+</ul>
+<p><tt class="docutils literal"><span class="pre">Edip</span></tt> will process all the pixels of your images to compute the wanted gray values.</p>
+<p>To know that either a <em>gray pixel</em> can be encoded on a single value between <strong>0</strong> and <strong>255</strong> or</p>
+<p>setting all channels on the same value will result in a <a class="reference internal" href="Edip To know about image processing.html#gray-color"><em>gray</em></a> pixel too.</p>
+<p>For example let say the current pixel <tt class="docutils literal"><span class="pre">Edip</span></tt> is procesing has the following channels values:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Channel</th>
+<th class="head">Red</th>
+<th class="head">Green</th>
+<th class="head">Blue</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Value</td>
+<td>32</td>
+<td>128</td>
+<td>192</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<ul>
+<li><p class="first">Gray Scaling <strong>Average</strong>:</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">Edip</span></tt> will compute the <em>average from all channels</em> and set the result as <strong>gray value</strong>.</p>
+<p>So <tt class="docutils literal"><span class="pre">Edip</span></tt> compute the average value:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="mi">32</span> <span class="o">+</span> <span class="mi">128</span> <span class="o">+</span> <span class="mi">192</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">=</span> <span class="mf">117.</span>
+</pre></div>
+</div>
+<p>So the resulting pixel will be transform to have following values:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Channel</th>
+<th class="head">Red</th>
+<th class="head">Green</th>
+<th class="head">Blue</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Value</td>
+<td>117</td>
+<td>117</td>
+<td>117</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Or be encoded on a single value equal to <strong>117</strong>.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Gray Scaling <strong>Maximal</strong>:</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">Edip</span></tt> will take the <em>highest value</em> from all the channels and set the it as <strong>gray value</strong>.</p>
+<p>So <tt class="docutils literal"><span class="pre">Edip</span></tt> compute the <strong>maximal value</strong> from the channels:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mi">32</span> <span class="o">&lt;</span> <span class="mi">128</span> <span class="o">&lt;</span> <span class="mi">192</span> <span class="o">=</span> <span class="mf">192.</span>
+</pre></div>
+</div>
+<p>So the resulting pixel will be transform to have following values:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Channel</th>
+<th class="head">Red</th>
+<th class="head">Green</th>
+<th class="head">Blue</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Value</td>
+<td>192</td>
+<td>192</td>
+<td>192</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Or be encoded on a single value equal to <strong>192</strong>.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Gray Scaling <strong>Minimal</strong>:</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">Edip</span></tt> will take the <em>lowest value</em> from all the channels and set the it as <strong>gray value</strong>.</p>
+<p>So <tt class="docutils literal"><span class="pre">Edip</span></tt> compute the <strong>minimal value</strong> from the all channels:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mi">192</span> <span class="o">&gt;</span> <span class="mi">128</span> <span class="o">&gt;</span> <span class="mi">32</span> <span class="o">=</span> <span class="mf">32.</span>
+</pre></div>
+</div>
+<p>So the resulting pixel will be transform to have following values:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Channel</th>
+<th class="head">Red</th>
+<th class="head">Green</th>
+<th class="head">Blue</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Value</td>
+<td>32</td>
+<td>32</td>
+<td>32</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Or be encoded on a single value equal to <strong>32</strong>.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Gray Scaling <strong>Red</strong>:</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">Edip</span></tt> will take the value from the <em>red channel</em> and set the it as <strong>gray value</strong>.</p>
+<p>So <tt class="docutils literal"><span class="pre">Edip</span></tt> recover the <strong>red</strong> channel value which is equal to <strong>32</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Red</span> <span class="o">=</span> <span class="mf">32.</span>
+</pre></div>
+</div>
+<p>So the resulting pixel will be transform to have following values:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Channel</th>
+<th class="head">Red</th>
+<th class="head">Green</th>
+<th class="head">Blue</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Value</td>
+<td>32</td>
+<td>32</td>
+<td>32</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Or be encoded on a single value equal to <strong>32</strong>.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Gray Scaling <strong>Green</strong>:</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">Edip</span></tt> will take the value from the <em>green channel</em> and set the it as <strong>gray value</strong>.</p>
+<p>So <tt class="docutils literal"><span class="pre">Edip</span></tt> recover the <strong>green</strong> channel value which is equal to <strong>32</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Green</span> <span class="o">=</span> <span class="mf">128.</span>
+</pre></div>
+</div>
+<p>So the resulting pixel will be transform to have following values:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Channel</th>
+<th class="head">Red</th>
+<th class="head">Green</th>
+<th class="head">Blue</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Value</td>
+<td>128</td>
+<td>128</td>
+<td>128</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Or be encoded on a single value equal to <strong>128</strong>.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Gray Scaling <strong>Blue</strong>:</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">Edip</span></tt> will take the value from the <em>green channel</em> and set the it as <strong>gray value</strong>.</p>
+<p>So <tt class="docutils literal"><span class="pre">Edip</span></tt> recover the <strong>blue</strong> channel value which is equal to <strong>192</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Blue</span> <span class="o">=</span> <span class="mf">192.</span>
+</pre></div>
+</div>
+<p>So the resulting pixel will be transform to have following values:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Channel</th>
+<th class="head">Red</th>
+<th class="head">Green</th>
+<th class="head">Blue</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Value</td>
+<td>192</td>
+<td>192</td>
+<td>192</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Or be encoded on a single value equal to <strong>192</strong>.</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal"><span class="pre">Edip</span></tt> will compute every pixel from your image like explain above according the choosen grayscaling base.</p>
+</div>
+</div>
+<div class="section" id="simple-colorscaling">
+<h2>Simple Colorscaling<a class="headerlink" href="#simple-colorscaling" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">Edip</span></tt> can colorscaling your image, to set it enterely in a main color tone, according differents bases:</p>
+<ul class="simple">
+<li>In <a class="reference internal" href="Edip To know about image processing.html#red-color"><em>red</em></a> tone:<ul>
+<li>Red Scaling <strong>Average</strong>.</li>
+<li>Red Scaling <strong>Maximal</strong>.</li>
+<li>Red Scaling <strong>Minimal</strong>.</li>
+<li>Red Scaling <strong>Green</strong>.</li>
+<li>Red Scaling <strong>Blue</strong>.</li>
+</ul>
+</li>
+<li>In <a class="reference internal" href="Edip To know about image processing.html#green-color"><em>green</em></a> tone:<ul>
+<li>Green Scaling <strong>Average</strong>.</li>
+<li>Green Scaling <strong>Maximal</strong>.</li>
+<li>Green Scaling <strong>Minimal</strong>.</li>
+<li>Green Scaling <strong>Red</strong>.</li>
+<li>Green Scaling <strong>Blue</strong>.</li>
+</ul>
+</li>
+<li>In <a class="reference internal" href="Edip To know about image processing.html#blue-color"><em>blue</em></a> tone:<ul>
+<li>Blue Scaling <strong>Average</strong>.</li>
+<li>Blue Scaling <strong>Maximal</strong>.</li>
+<li>Blue Scaling <strong>Minimal</strong>.</li>
+<li>Blue Scaling <strong>Green</strong>.</li>
+<li>Blue Scaling <strong>Blue</strong>.</li>
+</ul>
+</li>
+<li>In <a class="reference internal" href="Edip To know about image processing.html#yellow-color"><em>yellow</em></a> tone:<ul>
+<li>Yellow Scaling <strong>Average</strong>.</li>
+<li>Yellow Scaling <strong>Maximal</strong>.</li>
+<li>Yellow Scaling <strong>Minimal</strong>.</li>
+<li>Yellow Scaling <strong>Red</strong>.</li>
+<li>Yellow Scaling <strong>Green</strong>.</li>
+<li>Yellow Scaling <strong>Blue</strong>.</li>
+</ul>
+</li>
+<li>In <a class="reference internal" href="Edip To know about image processing.html#pink-color"><em>pink</em></a> tone:<ul>
+<li>Pink Scaling <strong>Average</strong>.</li>
+<li>Pink Scaling <strong>Maximal</strong>.</li>
+<li>Pink Scaling <strong>Minimal</strong>.</li>
+<li>Pink Scaling <strong>Red</strong>.</li>
+<li>Pink Scaling <strong>Green</strong>.</li>
+<li>Pink Scaling <strong>Blue</strong>.</li>
+</ul>
+</li>
+<li>In <a class="reference internal" href="Edip To know about image processing.html#turquoise-color"><em>turquoise</em></a> tone:<ul>
+<li>Turquoise Scaling <strong>Average</strong>.</li>
+<li>Turquoise Scaling <strong>Maximal</strong>.</li>
+<li>Turquoise Scaling <strong>Minimal</strong>.</li>
+<li>Turquoise Scaling <strong>Red</strong>.</li>
+<li>Turquoise Scaling <strong>Green</strong>.</li>
+<li>Turquoise Scaling <strong>Blue</strong>.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The pixels values computing according the differents bases are the same at by <a class="reference internal" href="#simple-grayscaling"><em>grayscaling</em></a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/Edip_icon.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Simple Filters</a><ul>
+<li><a class="reference internal" href="#edip-built-in-filters">Edip built-in filters</a><ul>
+<li><a class="reference internal" href="#pencil-sketch">Pencil Sketch</a></li>
+<li><a class="reference internal" href="#stylisation">Stylisation</a></li>
+<li><a class="reference internal" href="#detail-enhance">Detail Enhance</a></li>
+<li><a class="reference internal" href="#edges-preserving">Edges Preserving</a></li>
+<li><a class="reference internal" href="#stroke-edges">Stroke Edges</a></li>
+<li><a class="reference internal" href="#invert-intensity">Invert Intensity</a></li>
+<li><a class="reference internal" href="#light-intensity">Light Intensity</a></li>
+<li><a class="reference internal" href="#recolor-rc-red-cyan">Recolor RC (Red-Cyan)</a></li>
+<li><a class="reference internal" href="#recolor-rgv-red-green-value">Recolor RGV (Red-Green-Value)</a></li>
+<li><a class="reference internal" href="#recolor-cmv-cyan-magenta-value">Recolor CMV (Cyan-Magenta-Value)</a></li>
+<li><a class="reference internal" href="#extrema-maximal">Extrema Maximal</a></li>
+<li><a class="reference internal" href="#extrema-minimal">Extrema Minimal</a></li>
+<li><a class="reference internal" href="#sharpen">Sharpen</a></li>
+<li><a class="reference internal" href="#sharpen-more">Sharpen More</a></li>
+<li><a class="reference internal" href="#find-edges">Find Edges</a></li>
+<li><a class="reference internal" href="#mean-blur">Mean Blur</a></li>
+<li><a class="reference internal" href="#mean-blur-more">Mean Blur More</a></li>
+<li><a class="reference internal" href="#blur">Blur</a></li>
+<li><a class="reference internal" href="#blur-median">Blur Median</a></li>
+<li><a class="reference internal" href="#blur-gaussian">Blur Gaussian</a></li>
+<li><a class="reference internal" href="#denoising">Denoising</a></li>
+<li><a class="reference internal" href="#erode">Erode</a></li>
+<li><a class="reference internal" href="#dilate">Dilate</a></li>
+<li><a class="reference internal" href="#wave-horizontally">Wave Horizontally</a></li>
+<li><a class="reference internal" href="#wave-vertically">Wave Vertically</a></li>
+<li><a class="reference internal" href="#wave-twice">Wave Twice</a></li>
+<li><a class="reference internal" href="#contours-sobel-white">Contours Sobel White</a></li>
+<li><a class="reference internal" href="#contours-sobel-black">Contours Sobel Black</a></li>
+<li><a class="reference internal" href="#contours-sobel-emboss">Contours Sobel Emboss</a></li>
+<li><a class="reference internal" href="#emboss-sobel">Emboss Sobel</a></li>
+<li><a class="reference internal" href="#emboss-laplacian">Emboss Laplacian</a></li>
+<li><a class="reference internal" href="#binary-white-otsu">Binary White OTSU</a></li>
+<li><a class="reference internal" href="#binary-white-triangle">Binary White TRIANGLE</a></li>
+<li><a class="reference internal" href="#binary-white-average">Binary White AVERAGE</a></li>
+<li><a class="reference internal" href="#binary-black-otsu">Binary Black OTSU</a></li>
+<li><a class="reference internal" href="#binary-black-triangle">Binary Black TRIANGLE</a></li>
+<li><a class="reference internal" href="#binary-black-average">Binary Black AVERAGE</a></li>
+<li><a class="reference internal" href="#binary-contours-white">Binary Contours White</a></li>
+<li><a class="reference internal" href="#binary-contours-black">Binary Contours Black</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#simple-grayscaling">Simple Grayscaling</a></li>
+<li><a class="reference internal" href="#simple-colorscaling">Simple Colorscaling</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Edip Simple Settings.html"
+                        title="previous chapter">Simple Settings</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Edip Advanced Configurable Filters.html"
+                        title="next chapter">Advanced Configurable Filters</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/Edip Simple Filters.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Edip Advanced Configurable Filters.html" title="Advanced Configurable Filters"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Edip Simple Settings.html" title="Simple Settings"
+             >previous</a> |</li>
+        <li><a href="index.html">Edip</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Eddie Brüggemann (alias mrcyberfighter).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

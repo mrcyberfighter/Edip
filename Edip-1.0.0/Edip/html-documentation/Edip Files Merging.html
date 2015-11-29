@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Images Files Merging &mdash; EDIP (Easy Digital Imaging Processing) Documentation. 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="_static/Edip_favicon.ico"/>
+    <link rel="top" title="EDIP (Easy Digital Imaging Processing) Documentation. 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Simple Settings" href="Edip Simple Settings.html" />
+    <link rel="prev" title="Files" href="Edip Files.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Edip Simple Settings.html" title="Simple Settings"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Edip Files.html" title="Files"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Edip</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="images-files-merging">
+<h1>Images Files Merging<a class="headerlink" href="#images-files-merging" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">Edip</span></tt> provide severals files merging algorithms which permit to combine 2 input files to an single output file through an image mixing algorithm.</p>
+<p>You can choose 2 differents input image files, in any supported format, with giving eventual settings, to merge it into a single ouput image file.</p>
+<p>The differents images must have the same size to be interpolated, so <tt class="docutils literal"><span class="pre">Edip</span></tt> resize the output image to the same size, to the littler image file size from the twos per default.</p>
+<p>But you can set the output size you want for your output image.</p>
+<p>Then you can save the result of the image files merging to any supported format, by clicking on the <em class="guilabel"><span class="accelerator">S</span>ave file</em> button.</p>
+</div></blockquote>
+<div class="section" id="files-merging-blend-algorithm">
+<h2>Files merging Blend algorithm<a class="headerlink" href="#files-merging-blend-algorithm" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Interpolate 2 images file with the constant alpha to generate an output image:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Result</span> <span class="o">=</span> <span class="n">Image1</span> <span class="o">*</span> <span class="n">alpha</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="n">Image2</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>You must set the value of <strong>alpha</strong> which default to <strong>0.5</strong> between <strong>0.01</strong> and <strong>1.0</strong>.</li>
+</ul>
+<p>The images are converted to the same size (to the littler image) was is required for blend operation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You can use the button <em class="guilabel">Preview result</em> to preview your output image.</p>
+<p class="last">If the output size is greater than 800x600 pixels the preview image is resize to be included in the image preview window.</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="files-merging-screen-algorithm">
+<h2>Files merging Screen algorithm<a class="headerlink" href="#files-merging-screen-algorithm" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Superimpose two inverted images on the top of each other:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Result</span> <span class="o">=</span> <span class="n">MAX</span> <span class="o">-</span> <span class="p">((</span><span class="n">MAX</span><span class="o">-</span><span class="n">Image1</span><span class="p">)</span>  <span class="o">*</span> <span class="p">(</span><span class="n">MAX</span><span class="o">-</span><span class="n">Images2</span><span class="p">)</span> <span class="o">/</span> <span class="n">MAX</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The images are converted to the same size (to the littler image) was is required for screen operation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You can use the button <em class="guilabel">Preview result</em> to preview your output image.</p>
+<p class="last">If the output size is greater than 800x600 pixels the preview image is resize to be included in the image preview window.</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="files-merging-darker-algorithm">
+<h2>Files merging Darker algorithm<a class="headerlink" href="#files-merging-darker-algorithm" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Interpolate 2 images file and produce an output image with the darkest pixels values:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Result</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span> <span class="n">Image1</span><span class="p">,</span> <span class="n">Image2</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>The images are converted to the same size (to the littler image) was is required for darker operation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You can use the button <em class="guilabel">Preview result</em> to preview your output image.</p>
+<p class="last">If the output size is greater than 800x600 pixels the preview image is resize to be included in the image preview window.</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="files-merging-lighter-algorithm">
+<h2>Files merging Lighter algorithm<a class="headerlink" href="#files-merging-lighter-algorithm" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Interpolate 2 images file and produce an output image with the lightest pixels values:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Result</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span> <span class="n">Image1</span><span class="p">,</span> <span class="n">Image2</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>The images are converted to the same size (to the littler image) was is required for lighter operation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You can use the button <em class="guilabel">Preview result</em> to preview your output image.</p>
+<p class="last">If the output size is greater than 800x600 pixels the preview image is resize to be included in the image preview window.</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="files-merging-add-algorithm">
+<h2>Files merging Add algorithm<a class="headerlink" href="#files-merging-add-algorithm" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Add 2 images, dividing the result by scale and adding offset to generate an output image:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Result</span> <span class="o">=</span> <span class="p">(</span><span class="n">Image1</span> <span class="o">+</span> <span class="n">Image2</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale</span> <span class="o">+</span> <span class="n">offset</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>You must set the value of <strong>scale</strong> which default to <strong>1.0</strong> between <strong>0.01</strong> and <strong>8.0</strong>.</li>
+<li>You must set the value of <strong>offset</strong> which default to <strong>0</strong> between <strong>0</strong> and <strong>255</strong>.</li>
+</ul>
+<p>The images are converted to the same size (to the littler image) was is required for add operation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You can use the button <em class="guilabel">Preview result</em> to preview your output image.</p>
+<p class="last">If the output size is greater than 800x600 pixels the preview image is resize to be included in the image preview window.</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="files-merging-add-modulo-algorithm">
+<h2>Files merging Add modulo algorithm<a class="headerlink" href="#files-merging-add-modulo-algorithm" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Add 2 images and make the euclidian division of the result per the maximal:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Result</span> <span class="o">=</span> <span class="p">(</span> <span class="n">Image1</span> <span class="o">+</span> <span class="n">Image2</span> <span class="p">)</span> <span class="o">%</span> <span class="n">MAX</span>
+</pre></div>
+</div>
+<p>The images are converted to the same size (to the littler image) was is required for add modulo operation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You can use the button <em class="guilabel">Preview result</em> to preview your output image.</p>
+<p class="last">If the output size is greater than 800x600 pixels the preview image is resize to be included in the image preview window.</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="files-merging-subtract-algorithm">
+<h2>Files merging Subtract algorithm<a class="headerlink" href="#files-merging-subtract-algorithm" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Subtract 2 images, dividing the result by scale and adding offset to generate an output image:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Result</span> <span class="o">=</span> <span class="p">(</span><span class="n">Image1</span> <span class="o">-</span> <span class="n">Image2</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale</span> <span class="o">+</span> <span class="n">offset</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>You must set the value of <strong>scale</strong> which default to <strong>1.0</strong> between <strong>0.01</strong> and <strong>8.0</strong>.</li>
+<li>You must set the value of <strong>offset</strong> which default to <strong>0</strong> between <strong>0</strong> and <strong>255</strong>.</li>
+</ul>
+<p>The images are converted to the same size (to the littler image) was is required for sub operation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You can use the button <em class="guilabel">Preview result</em> to preview your output image.</p>
+<p class="last">If the output size is greater than 800x600 pixels the preview image is resize to be included in the image preview window.</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="files-merging-subtract-modulo-algorithm">
+<h2>Files merging Subtract modulo algorithm<a class="headerlink" href="#files-merging-subtract-modulo-algorithm" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Subtract 2 images and make the euclidian division of the result per the maximal:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Result</span> <span class="o">=</span> <span class="p">(</span> <span class="n">Image1</span> <span class="o">-</span> <span class="n">Image2</span> <span class="p">)</span> <span class="o">%</span> <span class="n">MAX</span>
+</pre></div>
+</div>
+<p>The images are converted to the same size (to the littler image) was is required for sub modulo operation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You can use the button <em class="guilabel">Preview result</em> to preview your output image.</p>
+<p class="last">If the output size is greater than 800x600 pixels the preview image is resize to be included in the image preview window.</p>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/Edip_icon.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Images Files Merging</a><ul>
+<li><a class="reference internal" href="#files-merging-blend-algorithm">Files merging Blend algorithm</a></li>
+<li><a class="reference internal" href="#files-merging-screen-algorithm">Files merging Screen algorithm</a></li>
+<li><a class="reference internal" href="#files-merging-darker-algorithm">Files merging Darker algorithm</a></li>
+<li><a class="reference internal" href="#files-merging-lighter-algorithm">Files merging Lighter algorithm</a></li>
+<li><a class="reference internal" href="#files-merging-add-algorithm">Files merging Add algorithm</a></li>
+<li><a class="reference internal" href="#files-merging-add-modulo-algorithm">Files merging Add modulo algorithm</a></li>
+<li><a class="reference internal" href="#files-merging-subtract-algorithm">Files merging Subtract algorithm</a></li>
+<li><a class="reference internal" href="#files-merging-subtract-modulo-algorithm">Files merging Subtract modulo algorithm</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Edip Files.html"
+                        title="previous chapter">Files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Edip Simple Settings.html"
+                        title="next chapter">Simple Settings</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/Edip Files Merging.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Edip Simple Settings.html" title="Simple Settings"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Edip Files.html" title="Files"
+             >previous</a> |</li>
+        <li><a href="index.html">Edip</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Eddie Brüggemann (alias mrcyberfighter).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+######## ldconfig variable ######
+LDCONFIG = @LDCONFIG@
+#################################
+
+# Define a function to check the presence of an executable through his binary path.
+BINARY_EXIST = $(shell which $1)
+
+# Call the function and store it result in a variable.
+UNZIP_PATH = $(if $(call BINARY_EXIST, unzip), $(call BINARY_EXIST, unzip))
+
+ifeq ($(UNZIP_PATH), )
+$(error unzip required for decompressing opencv-3.0.0, install unzip and retry again.)
+endif
+
+# Call the function and store it result in a variable.
+CMAKE_PATH = $(if $(call BINARY_EXIST, cmake), $(call BINARY_EXIST, cmake))
+
+ifeq ($(CMAKE_PATH), )
+$(error cmake required for building opencv-3.0.0, install cmake and retry again.)
+endif
+
+IS_ZIP = $(if $(shell ls opencv-3.0.0),$(shell ls opencv-3.0.0))
+
+
+
+
+
+OPENCV_BUILDING = OPENCV_BUILD_3RDPARTY_LIBS=ON WITH_GTK=ON BUILD_SHARED_LIBS=ON BUILD_JPEG=ON BUILD_JASPER=ON BUILD_PNG=ON BUILD_TIFF=ON BUILD_ZLIB=ON WITH_FFMPEG=ON
+
+
+cmake_lib:
+ifeq ($(IS_ZIP), )
+	unzip opencv-3.0.0.zip
+endif
+	cd ./opencv-3.0.0 ; cmake $(OPENCV_BUILDING) . ; if `test $$? -eq 0` ; then echo "Okay now install opencv-3.0.0 by typing:\n$$ sudo make install-opencv3" ; else echo "An internet connection is required !!!" ; fi ;
+
+install_lib:
+	cd ./opencv-3.0.0 ; make install ; $(LDCONFIG) ; echo "\n\nNow you can build and install Edip by typing:\n$$ make\n\n$$ sudo make install"
+
+uninstall_lib:
+	cd ./opencv-3.0.0 ; make uninstall ;
+
+.PHONY: cmake_lib install_lib uninstall_lib

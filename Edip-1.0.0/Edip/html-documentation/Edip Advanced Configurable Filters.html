@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Advanced Configurable Filters &mdash; EDIP (Easy Digital Imaging Processing) Documentation. 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="_static/Edip_favicon.ico"/>
+    <link rel="top" title="EDIP (Easy Digital Imaging Processing) Documentation. 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Advanced Configurable Color Filters" href="Edip Advanced Configurable Color Filters.html" />
+    <link rel="prev" title="Simple Filters" href="Edip Simple Filters.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Edip Advanced Configurable Color Filters.html" title="Advanced Configurable Color Filters"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Edip Simple Filters.html" title="Simple Filters"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Edip</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="advanced-configurable-filters">
+<h1>Advanced Configurable Filters<a class="headerlink" href="#advanced-configurable-filters" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="kernel-filters">
+<h2>Kernel filters<a class="headerlink" href="#kernel-filters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sharpen-kernel-filter">
+<h3>Sharpen kernel filter<a class="headerlink" href="#sharpen-kernel-filter" title="Permalink to this headline">¶</a></h3>
+<p>You can apply a fully configurable <a class="reference internal" href="Edip To know about image processing.html#sharpen-matrix"><em>Sharpen kernel</em></a> filter to the image.</p>
+<ul>
+<li><p class="first"><strong>Configuration options</strong>:</p>
+<ul>
+<li><p class="first"><strong>Kernel type</strong>:</p>
+<ul class="simple">
+<li><a class="reference internal" href="Edip To know about image processing.html#square-kernel"><em>Square</em></a></li>
+<li><a class="reference internal" href="Edip To know about image processing.html#diamond-kernel"><em>Diamond</em></a></li>
+<li><a class="reference internal" href="Edip To know about image processing.html#cross-kernel"><em>Cross</em></a></li>
+<li><a class="reference internal" href="Edip To know about image processing.html#x-kernel"><em>X</em></a></li>
+</ul>
+</li>
+<li><p class="first"><strong>Kernel size</strong>:</p>
+<p>The size of the kernel: per example a size of <strong>3</strong> correspond to a <strong>3x3 matrix</strong>.</p>
+<p>You can only use <strong>odd</strong> values between <strong>3</strong> and <strong>31</strong> included.</p>
+</li>
+<li><p class="first"><strong>Values factor</strong>:</p>
+<p>The factor to multtply each kernel component with.</p>
+</li>
+<li><p class="first"><strong>Center factor</strong>:</p>
+<p>The factor to multiply the kernel center with.</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can preview the kernel you have configurated by using the <em class="guilabel"><span class="accelerator">P</span>review kernel</em> button.</p>
+</div>
+</div>
+<div class="section" id="emboss-kernel-filter">
+<h3>Emboss kernel filter<a class="headerlink" href="#emboss-kernel-filter" title="Permalink to this headline">¶</a></h3>
+<p>You can apply a fully configurable <a class="reference internal" href="Edip To know about image processing.html#emboss-matrix"><em>Emboss kernel</em></a> filter to the image.</p>
+<ul>
+<li><p class="first"><strong>Configuration options</strong>:</p>
+<ul>
+<li><p class="first"><strong>Kernel type</strong>:</p>
+<ul class="simple">
+<li><a class="reference internal" href="Edip To know about image processing.html#square-kernel"><em>Square</em></a></li>
+<li><a class="reference internal" href="Edip To know about image processing.html#diamond-kernel"><em>Diamond</em></a></li>
+<li><a class="reference internal" href="Edip To know about image processing.html#cross-kernel"><em>Cross</em></a></li>
+<li><a class="reference internal" href="Edip To know about image processing.html#x-kernel"><em>X</em></a></li>
+</ul>
+</li>
+<li><p class="first"><strong>Kernel size</strong>:</p>
+<p>The size of the kernel: per example a size of <strong>3</strong> correspond to a <strong>3x3 matrix</strong>.</p>
+<p>You can only use <strong>odd</strong> values between <strong>3</strong> and <strong>31</strong> included.</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can preview the kernel you have configurated by using the <em class="guilabel"><span class="accelerator">P</span>review kernel</em> button.</p>
+</div>
+</div>
+<div class="section" id="mean-kernel-filter">
+<h3>Mean kernel filter<a class="headerlink" href="#mean-kernel-filter" title="Permalink to this headline">¶</a></h3>
+<p>You can apply a fully configurable <a class="reference internal" href="Edip To know about image processing.html#mean-matrix"><em>Mean kernel</em></a> filter to the image.</p>
+<ul>
+<li><p class="first"><strong>Configuration options</strong>:</p>
+<ul>
+<li><p class="first"><strong>Kernel type</strong>:</p>
+<ul class="simple">
+<li><a class="reference internal" href="Edip To know about image processing.html#square-kernel"><em>Square</em></a></li>
+<li><a class="reference internal" href="Edip To know about image processing.html#diamond-kernel"><em>Diamond</em></a></li>
+<li><a class="reference internal" href="Edip To know about image processing.html#cross-kernel"><em>Cross</em></a></li>
+<li><a class="reference internal" href="Edip To know about image processing.html#x-kernel"><em>X</em></a></li>
+</ul>
+</li>
+<li><p class="first"><strong>Kernel size</strong>:</p>
+<p>The size of the kernel: per example a size of <strong>3</strong> correspond to a <strong>3x3 matrix</strong>.</p>
+<p>You can only use <strong>odd</strong> values between <strong>3</strong> and <strong>31</strong> included.</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can preview the kernel you have configurated by using the <em class="guilabel"><span class="accelerator">P</span>review kernel</em> button.</p>
+</div>
+</div>
+<div class="section" id="gaussian-kernel-filter">
+<h3>Gaussian kernel filter<a class="headerlink" href="#gaussian-kernel-filter" title="Permalink to this headline">¶</a></h3>
+<p>You can apply a fully configurable <a class="reference internal" href="Edip To know about image processing.html#gaussian-matrix"><em>Gaussian kernel</em></a> filter to the image.</p>
+<ul>
+<li><p class="first"><strong>Configuration options</strong>:</p>
+<ul>
+<li><p class="first"><strong>Kernel type</strong>:</p>
+<ul class="simple">
+<li><a class="reference internal" href="Edip To know about image processing.html#square-kernel"><em>Square</em></a></li>
+<li><a class="reference internal" href="Edip To know about image processing.html#diamond-kernel"><em>Diamond</em></a></li>
+<li><a class="reference internal" href="Edip To know about image processing.html#cross-kernel"><em>Cross</em></a></li>
+<li><a class="reference internal" href="Edip To know about image processing.html#x-kernel"><em>X</em></a></li>
+</ul>
+</li>
+<li><p class="first"><strong>Kernel size</strong>:</p>
+<p>The size of the kernel: per example a size of <strong>3</strong> correspond to a <strong>3x3 matrix</strong>.</p>
+<p>You can only use <strong>odd</strong> values between <strong>3</strong> and <strong>31</strong> included.</p>
+</li>
+<li><p class="first"><strong>Sigma value</strong>:</p>
+<p>Seed value used to generate the <a class="reference internal" href="Edip To know about image processing.html#gaussian-vector"><em>gaussian vector</em></a> on which the kernel will be based.</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can preview the kernel you have configurated by using the <em class="guilabel"><span class="accelerator">P</span>review kernel</em> button.</p>
+</div>
+</div>
+<div class="section" id="kirsch-kernel-filter">
+<h3>Kirsch kernel filter<a class="headerlink" href="#kirsch-kernel-filter" title="Permalink to this headline">¶</a></h3>
+<p>You can apply a fully configurable <a class="reference internal" href="Edip To know about image processing.html#kirsch-matrix"><em>Kirsch kernel</em></a> filter to the image.</p>
+<ul>
+<li><p class="first"><strong>Configuration options</strong>:</p>
+<ul>
+<li><p class="first">Direction:</p>
+<ul class="simple">
+<li><a class="reference internal" href="Edip To know about image processing.html#kirsch-east"><em>East</em></a></li>
+<li><a class="reference internal" href="Edip To know about image processing.html#kirsch-west"><em>West</em></a></li>
+<li><a class="reference internal" href="Edip To know about image processing.html#kirsch-north"><em>North</em></a></li>
+<li><a class="reference internal" href="Edip To know about image processing.html#kirsch-south"><em>South</em></a></li>
+</ul>
+</li>
+<li><p class="first"><strong>Kernel size</strong>:</p>
+<p>The size of the kernel: per example a size of <strong>3</strong> correspond to a <strong>3x3 matrix</strong>.</p>
+<p>You can only use <strong>odd</strong> values between <strong>3</strong> and <strong>31</strong> included.</p>
+</li>
+<li><p class="first"><strong>Values factor</strong>:</p>
+<p>The factor to multtply each kernel component with.</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can preview the kernel you have configurated by using the <em class="guilabel"><span class="accelerator">P</span>review kernel</em> button.</p>
+</div>
+</div>
+</div>
+<div class="section" id="photography-filters">
+<h2>Photography filters<a class="headerlink" href="#photography-filters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pencil-sketch">
+<h3>Pencil Sketch<a class="headerlink" href="#pencil-sketch" title="Permalink to this headline">¶</a></h3>
+<p>The Pencil Sketch filter produce a non-photorealistic line drawing image.</p>
+<ul>
+<li><p class="first"><strong>Configuration options</strong>:</p>
+<ul>
+<li><p class="first"><strong>Sigma S</strong>:</p>
+<p>Value between <strong>0.0</strong> and <strong>200.0</strong>.</p>
+</li>
+<li><p class="first"><strong>Sigma R</strong>:</p>
+<p>Value between <strong>0.0</strong> and <strong>1.0</strong>.</p>
+</li>
+<li><p class="first"><strong>Shade</strong> factor:</p>
+<p>Value between <strong>0.001</strong> and <strong>0.100</strong>.</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="stylisation">
+<h3>Stylisation<a class="headerlink" href="#stylisation" title="Permalink to this headline">¶</a></h3>
+<p>The stylisation filter is an edge-aware filters which effect is not focused on photorealism but</p>
+<p>abstract regions of low contrast while preserving, or enhancing, high-contrast features.</p>
+<ul>
+<li><p class="first"><strong>Configuration options</strong>:</p>
+<ul>
+<li><p class="first"><strong>Sigma S</strong>:</p>
+<p>Value between <strong>0.0</strong> and <strong>200.0</strong>.</p>
+</li>
+<li><p class="first"><strong>Sigma R</strong>:</p>
+<p>Value between <strong>0.0</strong> and <strong>1.0</strong>.</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="detail-enhance">
+<h3>Detail Enhance<a class="headerlink" href="#detail-enhance" title="Permalink to this headline">¶</a></h3>
+<p>The Detail Enhance filter enhances the details of a particular image.</p>
+<ul>
+<li><p class="first"><strong>Configuration options</strong>:</p>
+<ul>
+<li><p class="first"><strong>Sigma S</strong>:</p>
+<p>Value between <strong>0.0</strong> and <strong>200.0</strong>.</p>
+</li>
+<li><p class="first"><strong>Sigma R</strong>:</p>
+<p>Value between <strong>0.0</strong> and <strong>1.0</strong>.</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="edge-preserving">
+<h3>Edge Preserving<a class="headerlink" href="#edge-preserving" title="Permalink to this headline">¶</a></h3>
+<p>The Edge Preserving filter is a smoothing filters used in many different applications.</p>
+<ul>
+<li><p class="first"><strong>Configuration options</strong>:</p>
+<ul>
+<li><p class="first"><strong>Sigma S</strong>:</p>
+<p>Value between <strong>0.0</strong> and <strong>200.0</strong>.</p>
+</li>
+<li><p class="first"><strong>Sigma R</strong>:</p>
+<p>Value between <strong>0.0</strong> and <strong>1.0</strong>.</p>
+</li>
+<li><p class="first"><strong>Filter</strong>:</p>
+<ul class="simple">
+<li><strong>Recurse</strong> filter.</li>
+<li><strong>NormConv</strong> Filter.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="denoising">
+<h3>Denoising<a class="headerlink" href="#denoising" title="Permalink to this headline">¶</a></h3>
+<p>The denoising filter perform image denoising using Non-local Means Denoising with several computational optimizations.</p>
+<p>Noise expected to be a gaussian white noise.</p>
+<p>Denoising is done by converting image to CIELAB colorspace and then separately denoise L and AB components with different parameters.</p>
+<ul>
+<li><p class="first"><strong>Configuration options</strong>:</p>
+<ul>
+<li><p class="first"><strong>Luminance factor</strong>:</p>
+<p>Parameter regulating filter strength. Big values perfectly removes noise but also removes image details, smaller values preserves details but also preserves some noise.</p>
+</li>
+<li><p class="first"><strong>Color denoising factor</strong>:</p>
+<p>The same as <strong>Luminance factor</strong> but for color components.</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="morphological-filters">
+<h2>Morphological filters<a class="headerlink" href="#morphological-filters" title="Permalink to this headline">¶</a></h2>
+<p>Morphological operations process images according to shapes.</p>
+<p>They apply a defined <strong>structuring element</strong> (named <a class="reference internal" href="Edip To know about image processing.html#convolution-matrix"><em>kernel</em></a>) to the image obtaining a new image where the current pixel is computed by comparing it to his neighborhood pixels.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Depending on the <strong>structuring element</strong> selected (which is fully configurable in <tt class="docutils literal"><span class="pre">Edip</span></tt>)</p>
+<p class="last">a morphological operation is more sensitive to one specific shape or the other.</p>
+</div>
+<div class="section" id="morphological-operations">
+<h3>Morphological operations<a class="headerlink" href="#morphological-operations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="dilatation">
+<span id="morphological-dilatation"></span><h4>Dilatation<a class="headerlink" href="#dilatation" title="Permalink to this headline">¶</a></h4>
+<p>Dilatation add pixels from the background to the boundaries of the object in an image.</p>
+<p>In dilatation, the value of the output pixel is the maximum of all pixels in the neighborhood.</p>
+</div>
+<div class="section" id="erosion">
+<span id="morphological-erosion"></span><h4>Erosion<a class="headerlink" href="#erosion" title="Permalink to this headline">¶</a></h4>
+<p>Erosion remove pixels from the foreground.</p>
+<p>Using erosion the value of the output pixel is the minimum of all pixels in the neighborhood.</p>
+</div>
+<div class="section" id="opening">
+<span id="morphological-open"></span><h4>Opening<a class="headerlink" href="#opening" title="Permalink to this headline">¶</a></h4>
+<p>Opening is an <a class="reference internal" href="#morphological-erosion"><em>erosion</em></a> followed by a <a class="reference internal" href="#morphological-dilatation"><em>dilatation</em></a>.</p>
+<p>Opening remove small objects from an image while preserving the larger one.</p>
+</div>
+<div class="section" id="closing">
+<span id="morphological-close"></span><h4>Closing<a class="headerlink" href="#closing" title="Permalink to this headline">¶</a></h4>
+<p>Closing is a <a class="reference internal" href="#morphological-dilatation"><em>dilatation</em></a> followed by an <a class="reference internal" href="#morphological-erosion"><em>erosion</em></a>.</p>
+<p>Closing is used to remove samll holes while preserving the larger one.</p>
+</div>
+<div class="section" id="tophat">
+<h4>Tophat<a class="headerlink" href="#tophat" title="Permalink to this headline">¶</a></h4>
+<p>Tophat ouput is the difference between the source image and it&#8217;s <a class="reference internal" href="#morphological-open"><em>opening</em></a>.</p>
+</div>
+<div class="section" id="blackhat">
+<h4>Blackhat<a class="headerlink" href="#blackhat" title="Permalink to this headline">¶</a></h4>
+<p>Blackhat ouput is the difference between the source image and it&#8217;s <a class="reference internal" href="#morphological-close"><em>closing</em></a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="canny-filter">
+<h2>Canny filter<a class="headerlink" href="#canny-filter" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>Canny</strong> contours detection operator use 2 different <a class="reference internal" href="Edip To know about image processing.html#thresholding"><em>threshold</em></a> values:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><strong>Low threshold</strong>:</dt>
+<dd><p class="first">The low threshold should be chosen in a way that it included all edges pixels that are considered as to belong to a significant image contour.</p>
+<p class="last">This should detect more edges that what is ideally needed in the case of the <strong>Canny</strong> algorithm.</p>
+</dd>
+<dt><strong>High threshold</strong>:</dt>
+<dd><p class="first">His role is to define the edges that belong to all important contours.</p>
+<p class="last">It should exclude all edges considered as outlier.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>The <strong>Canny</strong> algorithm combines these two edges maps in order to produce an optimal map of contours.</p>
+<p>It operate by keeping only edge points of the low threshold edge map for which a continuous path of edges exist, linking
+all edges points of the high threshold map are kept, while isolated chains of edges points in the low threshold map are removed.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This strategy, based on the use of <strong>two threshold</strong> to obtain a binary map, is called <strong>histereris thresholding</strong>.</p>
+</div>
+<p>In addition, the <strong>Canny</strong> algorithm uses an extra strategy to improve the quality of the edge map: all edges points for which the gradient magnitude is not a maximum in the gradient direction are removed.</p>
+<p>The gradient orientation is always perpendicular to the edge. Therefor, the local maximum of the gradient is this direction correspond to the points of maximum strength of the contours.</p>
+<p>This explains why thin edges are obtained in tha <strong>Canny</strong> contours map.</p>
+</div>
+<div class="section" id="color-contours-filter">
+<h2>Color contours filter<a class="headerlink" href="#color-contours-filter" title="Permalink to this headline">¶</a></h2>
+<p>This produce the same result as the <strong>Canny</strong> filter except that you can set:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The foreground color: the color of the detected edges.</li>
+<li>The background color.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/Edip_icon.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Advanced Configurable Filters</a><ul>
+<li><a class="reference internal" href="#kernel-filters">Kernel filters</a><ul>
+<li><a class="reference internal" href="#sharpen-kernel-filter">Sharpen kernel filter</a></li>
+<li><a class="reference internal" href="#emboss-kernel-filter">Emboss kernel filter</a></li>
+<li><a class="reference internal" href="#mean-kernel-filter">Mean kernel filter</a></li>
+<li><a class="reference internal" href="#gaussian-kernel-filter">Gaussian kernel filter</a></li>
+<li><a class="reference internal" href="#kirsch-kernel-filter">Kirsch kernel filter</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#photography-filters">Photography filters</a><ul>
+<li><a class="reference internal" href="#pencil-sketch">Pencil Sketch</a></li>
+<li><a class="reference internal" href="#stylisation">Stylisation</a></li>
+<li><a class="reference internal" href="#detail-enhance">Detail Enhance</a></li>
+<li><a class="reference internal" href="#edge-preserving">Edge Preserving</a></li>
+<li><a class="reference internal" href="#denoising">Denoising</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#morphological-filters">Morphological filters</a><ul>
+<li><a class="reference internal" href="#morphological-operations">Morphological operations</a><ul>
+<li><a class="reference internal" href="#dilatation">Dilatation</a></li>
+<li><a class="reference internal" href="#erosion">Erosion</a></li>
+<li><a class="reference internal" href="#opening">Opening</a></li>
+<li><a class="reference internal" href="#closing">Closing</a></li>
+<li><a class="reference internal" href="#tophat">Tophat</a></li>
+<li><a class="reference internal" href="#blackhat">Blackhat</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#canny-filter">Canny filter</a></li>
+<li><a class="reference internal" href="#color-contours-filter">Color contours filter</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Edip Simple Filters.html"
+                        title="previous chapter">Simple Filters</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Edip Advanced Configurable Color Filters.html"
+                        title="next chapter">Advanced Configurable Color Filters</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/Edip Advanced Configurable Filters.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Edip Advanced Configurable Color Filters.html" title="Advanced Configurable Color Filters"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Edip Simple Filters.html" title="Simple Filters"
+             >previous</a> |</li>
+        <li><a href="index.html">Edip</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Eddie Brüggemann (alias mrcyberfighter).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

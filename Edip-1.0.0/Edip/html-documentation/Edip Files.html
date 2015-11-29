@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Files &mdash; EDIP (Easy Digital Imaging Processing) Documentation. 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="_static/Edip_favicon.ico"/>
+    <link rel="top" title="EDIP (Easy Digital Imaging Processing) Documentation. 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Images Files Merging" href="Edip Files Merging.html" />
+    <link rel="prev" title="To know about imaging processing" href="Edip To know about image processing.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Edip Files Merging.html" title="Images Files Merging"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Edip To know about image processing.html" title="To know about imaging processing"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Edip</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="files">
+<h1>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="supported-image-file-formats">
+<h2>Supported image file formats<a class="headerlink" href="#supported-image-file-formats" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">Edip</span></tt> support <a class="reference internal" href="#always-supported-filetypes"><em>normally</em></a> following images files formats to load into the program for processing:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>bmp</strong>, <strong>dib</strong> (<em>bitmap image file.</em>)</li>
+<li><strong>jpg</strong>, <strong>jpeg</strong>, <strong>jpe</strong> (<em>Join photographic Expert Group.</em>)</li>
+<li><strong>png</strong> (<em>Protable Network Graphics.</em>)</li>
+<li><strong>tiff</strong>, <strong>tif</strong> (<em>Tag(ged) Image File (Format).</em>)</li>
+<li><strong>ras</strong>, <strong>sr</strong> (<em>Sun Raster</em>).</li>
+<li><strong>pbm</strong>, <strong>pgm</strong>, <strong>ppm</strong> (<em>Portable Image Format.</em>)</li>
+<li><strong>webp</strong>.</li>
+</ul>
+</div></blockquote>
+<p>The image file is loaded into the program and converted into <strong>RGB</strong>, (internally <strong>BGR</strong>) format or <strong>RGBA</strong> (internally <strong>BGRA</strong>) if an alpha channel is available in the image.</p>
+<div class="admonition note" id="always-supported-filetypes">
+<p class="first admonition-title">Note</p>
+<p>For supporting an image filetype the required library need to be installed except for:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>bmp</strong>, <strong>dib</strong> (<em>bitmap image file.</em>)</li>
+<li><strong>pbm</strong>, <strong>pgm</strong>, <strong>ppm</strong> (<em>Portable Image Format.</em>)</li>
+<li><strong>ras</strong>, <strong>sr</strong> (<em>Sun Raster</em>).</li>
+</ul>
+</div></blockquote>
+<p class="last">Which are always supported.</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="load-images-files">
+<h2>Load images files<a class="headerlink" href="#load-images-files" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>You can load an image file to process it into <tt class="docutils literal"><span class="pre">Edip</span></tt> by clicking on the <em class="guilabel">Open</em> button in the buttonbar,</p>
+<p>through the menu item <em class="menuselection">Files ‣ Open file</em> or by hitting the shortcut <tt class="kbd docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">O</span></tt>.</p>
+<p>You can start the program with am image file path as argument:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>edip image_filepath
+</pre></div>
+</div>
+<p>You can open an recent image file by using the menu item <em class="menuselection">Files ‣ Recent files</em>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="saving-image-files">
+<h2>Saving image files<a class="headerlink" href="#saving-image-files" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>You can save an image file by pressing the button <em class="guilabel">Save</em> in the button bar,</p>
+<p>trough the menu item <em class="menuselection">Files ‣ Save file</em> or by hitting the shortcut <tt class="kbd docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">S</span></tt>.</p>
+<p>Then you can set the output size of the image which default to the originally image size.</p>
+<p>And setting some options in relatinship to the format if available.</p>
+</div></blockquote>
+<div class="section" id="image-file-format-saving-options">
+<h3>Image file format saving options<a class="headerlink" href="#image-file-format-saving-options" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="png-image-file-saving-options">
+<h4>png image file saving options<a class="headerlink" href="#png-image-file-saving-options" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>Compression</strong>: from level from 0 to 9. A higher value means a smaller size and longer compression time. Default value is 3.</p>
+</li>
+<li><p class="first"><strong>Strategy</strong>:</p>
+<ul class="simple">
+<li>Default.</li>
+<li>Filtered.</li>
+<li>Huffman only.</li>
+<li>RLE.</li>
+<li>Fixed.</li>
+</ul>
+</li>
+<li><p class="first"><strong>Bilevel</strong>:</p>
+<p>You can only store an image as bilevel if the image is a <a class="reference internal" href="Edip To know about image processing.html#binary-images"><em>binary</em></a> (black and white) image.</p>
+<p>Otherwise the result will be undefined.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="jpeg-image-file-saving-options">
+<h4>jpeg image file saving options<a class="headerlink" href="#jpeg-image-file-saving-options" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Quality</strong>: it can be a quality from 0 to 100 (the higher is the better). Default value is 95.</li>
+<li><strong>Features</strong>:<ul>
+<li><strong>Progressiv</strong> (disabled per default).</li>
+<li><strong>Optimize</strong> (disabled per default).</li>
+</ul>
+</li>
+<li><strong>RST Restart</strong>: JPEG restart interval, 0 - 65535, default is 0 - no restart.</li>
+<li><strong>LUMA quality</strong>: Separate luma quality level, 0 - 100, default is 0 - don&#8217;t use.</li>
+<li><strong>CHROMA quality</strong>: Separate chroma quality level, 0 - 100, default is 0 - don&#8217;t use.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="xpm-image-file-saving-options">
+<h4>xpm image file saving options<a class="headerlink" href="#xpm-image-file-saving-options" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Binary</strong>: For PPM, PGM, or PBM, it can be a binary format flag, 0 or 1. Default value is 1.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="webp-image-file-saving-options">
+<h4>webp image file saving options<a class="headerlink" href="#webp-image-file-saving-options" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Quality</strong>: For WEBP, it can be a quality from 1 to 100 (the higher is the better). By default and for quality above 100 the lossless compression is used.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/Edip_icon.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Files</a><ul>
+<li><a class="reference internal" href="#supported-image-file-formats">Supported image file formats</a></li>
+<li><a class="reference internal" href="#load-images-files">Load images files</a></li>
+<li><a class="reference internal" href="#saving-image-files">Saving image files</a><ul>
+<li><a class="reference internal" href="#image-file-format-saving-options">Image file format saving options</a><ul>
+<li><a class="reference internal" href="#png-image-file-saving-options">png image file saving options</a></li>
+<li><a class="reference internal" href="#jpeg-image-file-saving-options">jpeg image file saving options</a></li>
+<li><a class="reference internal" href="#xpm-image-file-saving-options">xpm image file saving options</a></li>
+<li><a class="reference internal" href="#webp-image-file-saving-options">webp image file saving options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Edip To know about image processing.html"
+                        title="previous chapter">To know about imaging processing</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Edip Files Merging.html"
+                        title="next chapter">Images Files Merging</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/Edip Files.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Edip Files Merging.html" title="Images Files Merging"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Edip To know about image processing.html" title="To know about imaging processing"
+             >previous</a> |</li>
+        <li><a href="index.html">Edip</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Eddie Brüggemann (alias mrcyberfighter).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

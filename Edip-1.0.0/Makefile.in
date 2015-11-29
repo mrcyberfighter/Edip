@@ -1,0 +1,34 @@
+# I dislike directory printing behaviour of make: it look's like an error message cause of formatting style of this feature.
+MAKEFLAGS += --no-print-directory
+
+.PHONY: all install install-strip uninstall clean test opencv3 install-opencv3 uninstall-opencv3
+
+
+
+all:
+	@cd ./Edip ; $(MAKE) ;
+
+install:
+	@cd ./Edip ; $(MAKE) install
+
+install-strip:
+	@cd ./Edip ; $(MAKE) install-strip
+
+uninstall:
+	@cd ./Edip ; $(MAKE) uninstall
+
+clean:
+	@cd ./Edip ; $(MAKE) clean
+
+test:
+	@cd ./testcv ; $(MAKE) ; $(MAKE) exec
+
+opencv3:
+	@cd ./opencv3 ; $(MAKE) cmake_lib ;
+
+install-opencv3:
+	@cd ./opencv3 ; $(MAKE) install_lib ;
+
+uninstall-opencv3:
+	@cd ./opencv3 ; $(MAKE) uninstall_lib ;
+

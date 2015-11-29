@@ -1,0 +1,1018 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>To know about imaging processing &mdash; EDIP (Easy Digital Imaging Processing) Documentation. 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="_static/Edip_favicon.ico"/>
+    <link rel="top" title="EDIP (Easy Digital Imaging Processing) Documentation. 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Files" href="Edip Files.html" />
+    <link rel="prev" title="E.D.I.P presentation" href="Edip Presentation.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Edip Files.html" title="Files"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Edip Presentation.html" title="E.D.I.P presentation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Edip</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="to-know-about-imaging-processing">
+<h1>To know about imaging processing<a class="headerlink" href="#to-know-about-imaging-processing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-pixels-mystery">
+<h2>The pixels mystery<a class="headerlink" href="#the-pixels-mystery" title="Permalink to this headline">¶</a></h2>
+<p>An (raw) image is composed from pixels as you know.</p>
+<p>Every pixel can be encoded on:</p>
+<div class="section" id="basic-pixel-encoding">
+<h3>Basic pixel encoding<a class="headerlink" href="#basic-pixel-encoding" title="Permalink to this headline">¶</a></h3>
+<p>On a single value between <strong>0</strong> and <strong>255</strong>: This is the case of gray images.</p>
+<blockquote>
+<div><p>In this case every pixel can take a value from <strong>0</strong> (<strong>black</strong>) to <strong>255</strong> (<strong>white</strong>).</p>
+<p>To create every grayscale range value.</p>
+</div></blockquote>
+<p>On <strong>3</strong> or <strong>4</strong> channels of colors for every pixel.</p>
+<blockquote>
+<div><p>These channels are:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">The <strong>red</strong> channel which can take a value between <strong>0</strong> (<strong>black</strong>) and <strong>255</strong> (fully <strong>red</strong>).</p>
+</li>
+<li><p class="first">The <strong>green</strong> channel which can take a value between <strong>0</strong> (<strong>black</strong>) and <strong>255</strong> (fully <strong>green</strong>).</p>
+</li>
+<li><p class="first">The <strong>blue</strong> channel which can take a value between <strong>0</strong> (<strong>black</strong>) and <strong>255</strong> (fully <strong>blue</strong>).</p>
+</li>
+<li><p class="first">And a optional fourth channel can add an opacity value: which can take a value between <strong>0</strong> (fully <strong>transparent</strong>) and <strong>255</strong> (fully <strong>opaque</strong>):</p>
+<blockquote>
+<div><p>What mean that the image can contains fully transparent pixels, what permit to display a form which according per example your desktop background.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>For every pixel: so the pixels are encoded on <strong>3</strong> or <strong>4</strong> values between <strong>0</strong> and <strong>255</strong> representing the <strong>red</strong>, <strong>green</strong>, <strong>blue</strong> and optionnaly <strong>alpha</strong> channel values.</p>
+</div></blockquote>
+<p>What give us the <strong>RGB(A)</strong> color space.</p>
+<blockquote>
+<div><p>This is not very intuitive and this is not the way humans think about colors.</p>
+<p>But the <strong>red</strong>, <strong>green</strong> and <strong>blue</strong> values combined together give us a wide gamut of different colors</p>
+<div class="highlight-python"><div class="highlight"><pre>256 × 256 × 256 = 16777216 (differents possible colors).
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>In fact, the human visual system is also based on the <strong>trichromatic</strong> perception of colors.</p>
+<p class="last">With cone cell sensitivity located around the red, gren and blue spectrum.</p>
+</div>
+<p>This is the common pixel encoding in digital imaging.</p>
+<p>examples:</p>
+<blockquote>
+<div><p id="red-color">A fully red pixel will take following values:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Channel</th>
+<th class="head">Red</th>
+<th class="head">Green</th>
+<th class="head">Blue</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Value</td>
+<td>255</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Resulting color:</p>
+<img alt="_images/color_red.png" src="_images/color_red.png" />
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Red is a base color because only one channel is set.</p>
+</div>
+<p id="green-color">A fully green pixel will take following values:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Channel</th>
+<th class="head">Red</th>
+<th class="head">Green</th>
+<th class="head">Blue</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Value</td>
+<td>0</td>
+<td>255</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Resulting color:</p>
+<img alt="_images/color_green.png" src="_images/color_green.png" />
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Green is a base color because only one channel is set.</p>
+</div>
+<p id="blue-color">A fully blue pixel will take following values:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Channel</th>
+<th class="head">Red</th>
+<th class="head">Green</th>
+<th class="head">Blue</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Value</td>
+<td>0</td>
+<td>0</td>
+<td>255</td>
+</tr>
+</tbody>
+</table>
+<p>Resulting color:</p>
+<img alt="_images/color_blue.png" src="_images/color_blue.png" />
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Blue is a base color because only one channel is set.</p>
+</div>
+<p id="yellow-color">A fully yellow pixel will take following values: We mix red and green to obtain yellow color.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Channel</th>
+<th class="head">Red</th>
+<th class="head">Green</th>
+<th class="head">Blue</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Value</td>
+<td>255</td>
+<td>255</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Resulting color:</p>
+<img alt="_images/color_yellow.png" src="_images/color_yellow.png" />
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Yellow is a composite color because 2 differents channels are set.</p>
+</div>
+<p id="pink-color">A fully pink pixel will take following values: We mix red and blue to obtain pink color.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Channel</th>
+<th class="head">Red</th>
+<th class="head">Green</th>
+<th class="head">Blue</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Value</td>
+<td>255</td>
+<td>0</td>
+<td>255</td>
+</tr>
+</tbody>
+</table>
+<p>Resulting color:</p>
+<img alt="_images/color_pink.png" src="_images/color_pink.png" />
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Pink is a composite color because 2 differents channels are set.</p>
+</div>
+<p id="turquoise-color">A fully turquoise pixel will take following values: We mix the green and blue to obtain the turquoise color.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Channel</th>
+<th class="head">Red</th>
+<th class="head">Green</th>
+<th class="head">Blue</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Value</td>
+<td>0</td>
+<td>255</td>
+<td>255</td>
+</tr>
+</tbody>
+</table>
+<p>Resulting color:</p>
+<img alt="_images/color_turquoise.png" src="_images/color_turquoise.png" />
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Turquoise is a composite color because 2 differents channels are set.</p>
+</div>
+<p id="emboss-gray"><span id="gray-color"></span>A emboss gray pixel encoded on RGB (Red, Green, Blue) look&#8217;s like this:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Channel</th>
+<th class="head">Red</th>
+<th class="head">Green</th>
+<th class="head">Blue</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Value</td>
+<td>127</td>
+<td>127</td>
+<td>127</td>
+</tr>
+</tbody>
+</table>
+<p>Resulting color:</p>
+<img alt="_images/color_gray.png" src="_images/color_gray.png" />
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Gray is a composite color because the 3 channels are set.</p>
+<p class="last">Gray can be encoded on a single value: a 1 byte encoding.</p>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="other-pixels-encoding">
+<h3>Other pixels encoding<a class="headerlink" href="#other-pixels-encoding" title="Permalink to this headline">¶</a></h3>
+<p>Otherwise they are other image coding system&#8217;s: the <strong>phenomenal color spaces</strong>.</p>
+<blockquote>
+<div><p>Which are based on the concept of</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Hue</strong>.</li>
+<li><strong>Saturation</strong>.</li>
+<li>And <strong>brightness</strong>.</li>
+</ul>
+</div></blockquote>
+<p>These properties are more intuitive for humans.</p>
+<p>The <strong>phenomenal color spaces</strong> have been introduced because they correspond to the way humans tend to naturally organized colors.</p>
+<blockquote>
+<div><p>With atributes like:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Tint</strong>.</li>
+<li><strong>Colorfullness</strong>.</li>
+<li>And <strong>brightness</strong>.</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<ul id="hue">
+<li><p class="first"><strong>Hue</strong>: represent the dominant color.</p>
+<blockquote>
+<div><p>The name you give to a color correspond to the hue value.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">The hue value varies from 0 to 180 by representing the dominant color on a circle (0-360 degrees) which value is divide per 2 for encoding convienence.</p>
+<p>or in others words the hue represent the tint of the color.</p>
+</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ul>
+<ul id="saturation">
+<li><p class="first"><strong>Saturation</strong>: represent how vivid the color is.</p>
+<blockquote>
+<div><p>The saturation varies from <strong>0</strong> to <strong>255</strong> (pure spectrum color).</p>
+<blockquote>
+<div><p>The saturation represent the vivid of the colors:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Low value  : pastel color.</li>
+<li>High value : rainbow color.</li>
+</ul>
+</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre>             max(red, green, blue) - min(red, green, blue)
+Saturation = ---------------------------------------------
+                       max(red, green, blue)
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ul>
+<ul id="brightness">
+<li><p class="first"><strong>Brightness</strong>: represent the luminosity of a color.</p>
+<blockquote>
+<div><p>This is an subjectiv attribute.</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Others <strong>phenomenal color spaces</strong> values use the concept of value or lightness as a way to charaterize the relativ color intensity.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This colors attributes try to mimic the intuitive human pereption of colors.</p>
+</div>
+<ul>
+<li><p class="first">Example: the <strong>HSB</strong> color space.</p>
+<blockquote>
+<div><img alt="_images/HSB_cone_02.png" src="_images/HSB_cone_02.png" />
+</div></blockquote>
+<ul class="simple">
+<li>The hue is the cone top circle.</li>
+<li>The brightness is the cone height.</li>
+<li>The saturation value depends from the length of the arrow which must ne oriented into the direction of the hue value.</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="the-convolution-kernels">
+<span id="convolution-matrix"></span><h2>The Convolution kernels<a class="headerlink" href="#the-convolution-kernels" title="Permalink to this headline">¶</a></h2>
+<p>A kernel is a set of weights which determine how each output pixel is calculated from a neighborhood of input pixels.</p>
+<p>Applying a kernel filter consist of moving the kernel over each pixel of an image and multiplying each corresponding pixel by it&#8217;s associated weight.</p>
+<p>According to that the central pixel correspond to a pixel of interest and the others to the neighborhood pixels.</p>
+<p>The kernel is an odd matrix of values from any (odd) size limited from 3x3 to 31x31 and can be from different forms:</p>
+<div class="section" id="kernels-forms">
+<h3>Kernels forms<a class="headerlink" href="#kernels-forms" title="Permalink to this headline">¶</a></h3>
+<ul id="square-kernel">
+<li><p class="first">A <strong>square</strong> type kernel matrix:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul id="diamond-kernel">
+<li><p class="first">A <strong>diamond</strong> type kernel matrix:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul id="cross-kernel">
+<li><p class="first">A <strong>cross</strong> type kernel matrix:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul id="x-kernel">
+<li><p class="first">An <strong>X</strong> type kernel matrix:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>The art which the values are multiply depends from the operator which use the matrix, and the central pixel value depend from it.</p>
+<p>The total summe of the matrix values represent the weight of the matrix and so we often adjust the value of the central pixel to make the total weight equal to:</p>
+<blockquote>
+<div>1 or 0</div></blockquote>
+<p>but not always because it depends from how the value are interpolate:</p>
+</div>
+<div class="section" id="classical-kernel-matrixes">
+<h3>Classical kernel matrixes<a class="headerlink" href="#classical-kernel-matrixes" title="Permalink to this headline">¶</a></h3>
+<ul id="sharpen-matrix">
+<li><p class="first">A <strong>sharpen</strong> kernel matrix:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>-1</td>
+<td>-1</td>
+<td>-1</td>
+</tr>
+<tr class="row-even"><td>-1</td>
+<td>9</td>
+<td>-1</td>
+</tr>
+<tr class="row-odd"><td>-1</td>
+<td>-1</td>
+<td>-1</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>has a weight of <strong>+1</strong> due of the <strong>8</strong> x <strong>-1</strong> values and the central <strong>+9</strong> value.</p>
+<ul id="find-edges-matrix">
+<li><p class="first">A <strong>Find Edges</strong> kernel matrix:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>-1</td>
+<td>-1</td>
+<td>-1</td>
+</tr>
+<tr class="row-even"><td>-1</td>
+<td>8</td>
+<td>-1</td>
+</tr>
+<tr class="row-odd"><td>-1</td>
+<td>-1</td>
+<td>-1</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>has a weight of <strong>0</strong> due of the <strong>8</strong> x <strong>-1</strong> values and the central <strong>+8</strong> value.</p>
+<ul id="emboss-matrix">
+<li><p class="first">A <strong>Emboss</strong> kernel matrix:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>-2</td>
+<td>-1</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>-1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>0</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>has a weight of <strong>+1</strong> due of the <strong>(-2 + -1 + 1)</strong> and <strong>(2 + 1 + 1)</strong> values and the central <strong>1</strong> value.</p>
+<ul id="mean-matrix">
+<li><p class="first">A <strong>Mean</strong> kernel matrix:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1/9</td>
+<td>1/9</td>
+<td>1/9</td>
+</tr>
+<tr class="row-even"><td>1/9</td>
+<td>1/9</td>
+<td>1/9</td>
+</tr>
+<tr class="row-odd"><td>1/9</td>
+<td>1/9</td>
+<td>1/9</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>has a weight of <strong>+1</strong> du of the fact that all values are equal to <strong>1.0</strong> divide per kernel size.</p>
+<ul id="gaussian-matrix">
+<li><p class="first">A <strong>Gaussian</strong> kernel matrix:</p>
+<p id="gaussian-values">is based on a gaussian vector: a vector of values seed from a sigma value.</p>
+<p id="gaussian-vector">example from a gausssian vector from size <strong>7</strong> with <strong>1.2</strong> as sigma value:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span> <span class="mf">0.015</span><span class="p">,</span> <span class="mf">0.083</span><span class="p">,</span> <span class="mf">0.236</span><span class="p">,</span> <span class="mf">0.333</span><span class="p">,</span> <span class="mf">0.236</span><span class="p">,</span> <span class="mf">0.083</span><span class="p">,</span> <span class="mf">0.015</span> <span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<ul id="kirsch-matrix">
+<li><p class="first">A <strong>Kirsch</strong> kernel matrix:</p>
+<p>Have an orientation:</p>
+<ul id="kirsch-east">
+<li><p class="first">East orientation:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>-3</td>
+<td>-3</td>
+<td>5</td>
+</tr>
+<tr class="row-even"><td>-3</td>
+<td>0</td>
+<td>5</td>
+</tr>
+<tr class="row-odd"><td>-3</td>
+<td>-3</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul id="kirsch-west">
+<li><p class="first">West orientation:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>5</td>
+<td>-3</td>
+<td>-3</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>0</td>
+<td>-3</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>-3</td>
+<td>-3</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul id="kirsch-north">
+<li><p class="first">North orientation:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>-3</td>
+<td>-3</td>
+<td>-3</td>
+</tr>
+<tr class="row-even"><td>-3</td>
+<td>0</td>
+<td>-3</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>5</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul id="kirsch-south">
+<li><p class="first">South orientation:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>5</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr class="row-even"><td>-3</td>
+<td>0</td>
+<td>-3</td>
+</tr>
+<tr class="row-odd"><td>-3</td>
+<td>-3</td>
+<td>-3</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+<ul id="sobel-matrix">
+<li><p class="first">A <strong>Sobel</strong> kernel matrix:</p>
+<ul>
+<li><p class="first">horizontally:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>-1</td>
+<td>-2</td>
+<td>-1</td>
+</tr>
+<tr class="row-even"><td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first">Vertically:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>-1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>-2</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>-1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+<ul id="laplacian-matrix">
+<li><p class="first">A <strong>Laplacian</strong> kernel matrix:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>0.5</td>
+<td>1.0</td>
+<td>0.5</td>
+</tr>
+<tr class="row-even"><td>1.0</td>
+<td>6</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td>0.5</td>
+<td>1.0</td>
+<td>0.5</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="thresholding">
+<span id="id1"></span><h2>Thresholding<a class="headerlink" href="#thresholding" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>The use of thresholding can be used to obtain a <a class="reference internal" href="#binary-images"><em>binary image</em></a> (black and white image) by setting a value: the threshold value.</p>
+<p>In relationship to this value, all pixels values (encoded on a single value) greater as this value are set to white.</p>
+<p>All pixels littler are set to black.</p>
+<p>What produce a binary image map of the source image.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Thresholding can be invert so that greater values are set to black and littler are set to white.</p>
+<p class="last">What permit to get a <strong>White</strong> and a <strong>Black</strong> version of the filters producing a <em>binary image</em>.</p>
+</div>
+<p>It exist algorithms which can determine the best threshold value based on the analysis of a grayscale image:</p>
+<ul class="simple">
+<li><strong>OTSU</strong> algorithm. (As in the <a class="reference internal" href="Edip Simple Filters.html#binary-white-otsu"><em>Binary White OTSU</em></a> or <a class="reference internal" href="Edip Simple Filters.html#binary-black-otsu"><em>Binary Black OTSU</em></a> filters.)</li>
+<li><strong>TRIANGLE</strong> algorithm. (As in the <a class="reference internal" href="Edip Simple Filters.html#binary-white-triangle"><em>Binary White TRIANGLE</em></a> or <a class="reference internal" href="Edip Simple Filters.html#binary-black-triangle"><em>Binary Black TRIANGLE</em></a> filters.)</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You can take the average value from this 2 algorithms computed threshold values</p>
+<p>As in the <a class="reference internal" href="Edip Simple Filters.html#binary-white-average"><em>Binary White Average</em></a> or</p>
+<p class="last">the <a class="reference internal" href="Edip Simple Filters.html#binary-black-average"><em>Binary Black Average</em></a> filters.</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="binary-images">
+<span id="id2"></span><h2>Binary images<a class="headerlink" href="#binary-images" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><strong>Binary images</strong> are strictly <strong>black</strong> and <strong>white</strong> images with as convention that:</p>
+<blockquote>
+<div><p>The <strong>foreground</strong> from the image is represented in <strong>white</strong>.</p>
+<p>The <strong>background</strong> from the image is represented in <strong>black</strong>.</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/Edip_icon.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">To know about imaging processing</a><ul>
+<li><a class="reference internal" href="#the-pixels-mystery">The pixels mystery</a><ul>
+<li><a class="reference internal" href="#basic-pixel-encoding">Basic pixel encoding</a></li>
+<li><a class="reference internal" href="#other-pixels-encoding">Other pixels encoding</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-convolution-kernels">The Convolution kernels</a><ul>
+<li><a class="reference internal" href="#kernels-forms">Kernels forms</a></li>
+<li><a class="reference internal" href="#classical-kernel-matrixes">Classical kernel matrixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#thresholding">Thresholding</a></li>
+<li><a class="reference internal" href="#binary-images">Binary images</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Edip Presentation.html"
+                        title="previous chapter">E.D.I.P presentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Edip Files.html"
+                        title="next chapter">Files</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/Edip To know about image processing.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Edip Files.html" title="Files"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Edip Presentation.html" title="E.D.I.P presentation"
+             >previous</a> |</li>
+        <li><a href="index.html">Edip</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Eddie Brüggemann (alias mrcyberfighter).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

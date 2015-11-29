@@ -1,0 +1,20 @@
+
+WALL    = -Wall
+
+CXXFLAGS = $(WALL) -std=c++11
+
+PRGNAME = test_opencv_gtk3
+
+OBJECTS = main.o
+
+LDLIBS = `pkg-config --cflags --libs gtk+-3.0` `pkg-config --cflags --libs opencv`
+
+MAKEFLAGS += -i
+
+.PHONY: compile-test exec
+
+compile-test:
+	@$(CXX) $(CXXFLAGS) main.cpp -o $(PRGNAME) $(LDLIBS) >> /dev/null ; if `test $$? -ne 0` ; then echo "The 'test program' compiling failed\nfor building opencv-3.0.0 enter:\n$$ make opencv3" ; fi
+
+exec:
+	@./$(PRGNAME) Edip_icon.png ; if `test $$? -eq 0` ; then echo "ok it work's you can continue...\nenter:\n$$ make\n$$ sudo make install" ; else echo "the 'test program' execution failed !!!\nfor building opencv-3.0.0 enter:\n$$ make opencv3" ; fi
