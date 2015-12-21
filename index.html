@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Edip (Easy Digital Imaging Processing) by mrcyberfighter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Edip (Easy Digital Imaging Processing)</h1>
+      <h2 class="project-tagline"> digital, imaging, effects, filters, opencv-3.0.0, linux, c++, opensource, technical documentation, *.bmp, *.dib (bitmap image file), *.jpg, *.jpeg, *.jpe (Join Photographic Expert Group), *.png (Portable Network Graphics), *.tiff, *.tif (Tag(ged) Image File (Format)), *.ras, *.sr (Sun Raster), *.pbm, *.pgm, *.ppm (Portable Image Format), *.webp.</h2>
+      <a href="https://github.com/mrcyberfighter/Edip" class="btn">View on GitHub</a>
+      <a href="https://github.com/mrcyberfighter/Edip/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/mrcyberfighter/Edip/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="edip-the-easy-digital-imaging-processing-program" class="anchor" href="#edip-the-easy-digital-imaging-processing-program" aria-hidden="true"><span class="octicon octicon-link"></span></a>E.D.I.P the Easy Digital Imaging Processing program</h1>
+
+<p>:Program: Edip</p>
+
+<p>:Version: 1.0.0</p>
+
+<p>:Author: Eddie Brüggemann <a href="mailto:mrcyberfighter@gmail.com">mrcyberfighter@gmail.com</a></p>
+
+<p>:Language: C++</p>
+
+<p>:Release: 24/11/2015</p>
+
+<p>:License: GPLv3</p>
+
+<p><img src="https://raw.githubusercontent.com/mrcyberfighter/Edip/master/Edip_icon.png" alt=""> </p>
+
+<h2>
+<a id="edip-presentation" class="anchor" href="#edip-presentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>E.D.I.P presentation</h2>
+
+<p><code>Edip</code> is an easy to use image effects processing programme with severals functionnalities.</p>
+
+<p><code>Edip</code> permit to:</p>
+
+<ul>
+<li><p><strong>Rotate</strong> your image over 90° to the <strong>left</strong> or to the <strong>right</strong>.</p></li>
+<li>
+<p><strong>Mirror</strong> your image, so that:</p>
+
+<ul>
+<li><p>The left side from your image is copy, mirror likewise, on the right side.</p></li>
+<li><p>The right side from your image is copy, mirror likewise, on the left side.</p></li>
+<li><p>The upper part of your image is copy, mirror likewise, on the bottom part.</p></li>
+<li><p>The bottom part of your image is copy, mirror likewise, on the upper part.</p></li>
+</ul>
+</li>
+<li><p><strong>Zoom</strong> on a <strong>selected center</strong> or the default <strong>image center</strong>.</p></li>
+<li>
+<p><strong>Flipping</strong> your image.</p>
+
+<ul>
+<li><p>From left to right.</p></li>
+<li><p>From right to left.</p></li>
+<li><p>From up to down.</p></li>
+<li><p>From down to up.</p></li>
+</ul>
+
+<p><code>Edip</code> permit to change the image color intensity and some phenomenal color spaces settings.</p>
+</li>
+<li>
+<p><strong>Color intensity</strong></p>
+
+<ul>
+<li><p>You can set the <strong>red</strong> intensity.</p></li>
+<li><p>You can set the <strong>green</strong> intensity.</p></li>
+<li><p>You can set the <strong>blue</strong> intensity.</p></li>
+<li><p>You can set the <strong>global</strong> intensity.</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Phenomenal color spaces settings</strong></p>
+
+<ul>
+<li><p>You can set the <strong>Lightness</strong> from your image.</p></li>
+<li><p>You can set the <strong>Hue</strong> from your image.</p></li>
+<li><p>You can set the <strong>Saturation</strong> from your image.</p></li>
+<li><p>You can set the <strong>Brightness</strong> from your image.  </p></li>
+</ul>
+
+<p><code>Edip</code> permit to apply severals built-in filters to your image by simply selecting the wanted filter in the list and pressing the apply button.</p>
+
+<p>The built-in filters are divide into <strong>3</strong> differents categories:</p>
+</li>
+<li>
+<p><strong>normal filters</strong></p>
+
+<p>You can apply over <strong>30</strong> differents filters to your image.</p>
+</li>
+<li>
+<p><strong>Grayscaling filters</strong></p>
+
+<p>You can grayscale your image according <strong>6</strong> differents algorithms.</p>
+</li>
+<li>
+<p><strong>Colorscaling</strong> filters</p>
+
+<p>You can colorscale your image in 6 differents colors (<strong>red</strong>, <strong>green</strong>, <strong>blue</strong>, <strong>yellow</strong>, <strong>pink</strong>, <strong>turquoise</strong>) according differents algorithms for every color.</p>
+
+<p>In addition <code>Edip</code> provide many fully configurable filters which you can apply to your image:</p>
+</li>
+<li><p><strong>Kernel</strong> filters.</p></li>
+<li><p><strong>Photography</strong> filters.</p></li>
+<li><p><strong>Morphological</strong> filters.</p></li>
+<li><p><strong>Canny</strong> filter.</p></li>
+<li><p><strong>Color contours</strong> filter.</p></li>
+<li><p><strong>Multiply colors</strong>.</p></li>
+<li><p><strong>Multiply global intensity</strong>.</p></li>
+<li>
+<p><strong>Set image in color tone</strong>.</p>
+
+<p><code>Edip</code> provide some basic draw functionalities to draw onto your image in the wanted color with the wanted thickness or to fill your form.</p>
+</li>
+<li><p><strong>Polylines</strong>.</p></li>
+<li><p><strong>Rectangle</strong>.</p></li>
+<li><p><strong>Circle</strong>.</p></li>
+<li><p><strong>Ellipse</strong>.</p></li>
+<li><p><strong>Polygone</strong>: <em>normal</em> or <em>strikethrough</em>.</p></li>
+<li><p><strong>Star</strong>: <em>normal</em>, <em>strikethrough</em>, <em>flower likewise</em>, <em>stroked</em>.</p></li>
+<li><p><strong>Text</strong>.</p></li>
+</ul>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>:depends: gtkmm-3.0 opencv-3.0.0</p>
+
+<pre><code>opencv-3.0.0 source furnished with Edip.
+
+Because Edip required this library in this version.
+
+OpenCV coming from your packages manager is often precompiled with
+
+GTK2 support and not GTK3 support, so uncompatible with Edip.
+
+If you get opencv-3.0.0 installed and you are not sure,
+</code></pre>
+
+<p>try to launch the test program by typing:</p>
+
+<div class="highlight highlight-source-shell"><pre>  $ make <span class="pl-c1">test</span></pre></div>
+
+<p>If this fail you can install the opencv-3.0.0 version shipped with</p>
+
+<p>Edip by typing:</p>
+
+<div class="highlight highlight-source-shell"><pre>  $ make opencv3 <span class="pl-c"># An internet connection is required.</span>
+
+  $ sudo make install-opencv3 <span class="pl-c"># Install opencv-3.0.0</span></pre></div>
+
+<p>What will add a library to your system and the only case it can disturb you is</p>
+
+<p>if you want to write an application using GTK2 and opencv.</p>
+
+<p>Installation process:   </p>
+
+<div class="highlight highlight-source-shell"><pre>  $ make opencv3 <span class="pl-c"># An internet connection is required.</span>
+
+  $ sudo make install-opencv3 <span class="pl-c"># Build and install opencv-3.0.0 from source.</span>
+
+  $ make <span class="pl-c"># Build all binaries. </span>
+
+  $ sudo make install <span class="pl-c"># Install Edip on your system. </span></pre></div>
+
+<h1>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h1>
+
+<p>:Author: Eddie Bruggemann</p>
+
+<p>:Contact: <a href="mailto:mrcyberfighter@gmail.com">mrcyberfighter@gmail.com</a></p>
+
+<p>:License: GPLv3.</p>
+
+<p>Thank's to my beloved mother, my family and to the doctors.</p>
+
+<p>Stay away from drugs: drugs destroy your brain and your life.</p>
+
+<h2>
+<a id="copyright" class="anchor" href="#copyright" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright</h2>
+
+<pre><code>Edip an image effects processing programme with severals functionnalities.
+Copyright (C) 2015  Brüggemann Eddie.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.   
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/mrcyberfighter/Edip">Edip (Easy Digital Imaging Processing)</a> is maintained by <a href="https://github.com/mrcyberfighter">mrcyberfighter</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
