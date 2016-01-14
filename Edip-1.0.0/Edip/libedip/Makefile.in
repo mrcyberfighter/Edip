@@ -48,9 +48,12 @@ BUILD_DIR = ./build
 
 
 
-$(LIBEDIP_A): $(LIBEDIP_FILES_O)
+$(LIBEDIP_A): $(BUILD_DIR) $(LIBEDIP_FILES_O)
 	$(AR) rcs $(LIBEDIP_A) $(LIBEDIP_FILES_O)
 	$(RANLIB) $(LIBEDIP_A)
+
+$(BUILD_DIR):
+	$(MKDIR_P) $(BUILD_DIR)
 
 $(BUILD_DIR)/algorithm.o: algorithm.cpp algorithm.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
