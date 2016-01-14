@@ -82,8 +82,11 @@ BUILD_DIR = ./build
 
 ################################################################################
 
-$(PRGNAME): $(CXX_LIBEDIP_A) $(CXX_FILES_O)
+$(PRGNAME): $(BUILD_DIR) $(CXX_LIBEDIP_A) $(CXX_FILES_O)
 	$(CXX)  $(EDIP_CXXFLAGS) $(GTKMM_CFLAGS) -o $(PRGNAME) $(CXX_FILES_O) $(CXX_LIBEDIP_A) $(GTKMM_LIBS) $(OPENCV_LDFLAGS)
+
+$(BUILD_DIR):
+	$(MKDIR_P) $(BUILD_DIR)
 
 $(BUILD_DIR)/Edip_functions.o: Edip_functions.cpp Edip_functions.hpp
 	$(CXX)  $(EDIP_CXXFLAGS) $(GTKMM_CFLAGS) -c $< -o $@ $(GTKMM_LIBS) $(OPENCV_LDFLAGS)
